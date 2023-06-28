@@ -1,0 +1,48 @@
+// GENERAL PROJECT STYLES
+
+html
+  scroll-behavior: smooth
+
+body.--lock
+  overflow: hidden
+
+h1,
+h2,
+h3 
+  font-family: $titlefont
+
+h2
+  @include fluidFontSize(26px, 40px, 480px, 1280px, 26px)
+  @include fluidLineHeight(32px, 46px, 480px, 1280px, 46px)
+
+#wpadminbar
+  top: auto
+  bottom: 0
+  position: fixed
+
+.wrapper
+  display: flex
+  flex-direction: column
+  width: 100%
+  min-height: 300vh
+  justify-content: space-between
+
+.container
+  max-width: 1300px
+  @include fluidPaddingLR(10px, 15px, 480px, 1024px, 10px)
+  margin: 0 auto
+
+.section
+  @include fluidMarginTB(40px, 80px, 480px, 1024px, 40px)
+
+.btn 
+  height: 48px
+  width: fit-content
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 0 25px
+  background-color: $red
+  color: #fff
+  text-transform: uppercase
+  font-weight: 700
