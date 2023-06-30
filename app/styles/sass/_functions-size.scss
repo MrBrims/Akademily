@@ -79,3 +79,93 @@
     margin: $f-max 0;
   }
 }
+
+@mixin fluidMarginB($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  
+  margin-bottom: $f-min;
+  
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      margin-bottom: $fallback;
+    }
+    margin-bottom: calcFluidSize($f-min, $f-max, $w-min, $w-max, px);  
+  }
+  @media (min-width: $w-max) {
+    margin-bottom: $f-max;
+  }
+}
+
+@mixin fluidMarginT($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  
+  margin-top: $f-min;
+  
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      margin-top: $fallback;
+    }
+    margin-top: calcFluidSize($f-min, $f-max, $w-min, $w-max, px);  
+  }
+  @media (min-width: $w-max) {
+    margin-top: $f-max;
+  }
+}
+
+@mixin fluidPaddingT($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  
+  padding-top: $f-min;
+  
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      padding-top: $fallback;
+    }
+    padding-top: calcFluidSize($f-min, $f-max, $w-min, $w-max, px);  
+  }
+  @media (min-width: $w-max) {
+    padding-top: $f-max;
+  }
+}
+
+@mixin fluidPaddingB($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  
+  padding-bottom: $f-min;
+  
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      padding-bottom: $fallback;
+    }
+    padding-bottom: calcFluidSize($f-min, $f-max, $w-min, $w-max, px);  
+  }
+  @media (min-width: $w-max) {
+    padding-bottom: $f-max;
+  }
+}
+
+@mixin fluidTop($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  
+  top: $f-min;
+  
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      top: $fallback;
+    }
+    top: calcFluidSize($f-min, $f-max, $w-min, $w-max, px);  
+  }
+  @media (min-width: $w-max) {
+    top: $f-max;
+  }
+}
+
+@mixin fluidGap($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  
+  gap: $f-min;
+  
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      gap: $fallback;
+    }
+    gap: calcFluidSize($f-min, $f-max, $w-min, $w-max, px);  
+  }
+  @media (min-width: $w-max) {
+    gap: $f-max;
+  }
+}
