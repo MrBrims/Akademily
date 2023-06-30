@@ -11,6 +11,10 @@ h2,
 h3 
   font-family: $titlefont
 
+h1
+  @include fluidFontSize(30px, 56px, 480px, 1280px, 26px)
+  @include fluidLineHeight(36px, 64px, 480px, 1280px, 46px)
+
 h2
   @include fluidFontSize(26px, 40px, 480px, 1280px, 26px)
   @include fluidLineHeight(32px, 46px, 480px, 1280px, 46px)
@@ -46,3 +50,7 @@ h2
   color: #fff
   text-transform: uppercase
   font-weight: 700
+  transition: opacity .3s ease-out
+  cursor: pointer
+  &:hover
+    opacity: .7

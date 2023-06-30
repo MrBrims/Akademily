@@ -1,8 +1,51 @@
 .form {
   user-select: none;
+
+  &__text {
+    font-size: 12px;
+    line-height: 18px;
+    color: #002E5D;
+    display: block;
+    margin-bottom: 8px;
+
+  }
+
+  &__required-field {
+    color: $red;
+  }
+
+  &__tippy {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-image: url(../images/icons/question.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-bottom: -1px;
+  }
+
+  &__date-custom {
+    position: relative;
+    &::before {
+      @include bgbefore;
+      width: 40px;
+      height: 40px;
+      right: 0;
+      background-image: url(../images/icons/calendar.svg);
+      background-color: $accent;
+      cursor: pointer;
+      border-radius: 0 2px 2px 0;
+    }
+  }
+
   &.--sending {
     position: relative;
     overflow: hidden;
+
     &::after {
       content: "";
       position: absolute;
@@ -10,6 +53,7 @@
       background-color: rgba(255, 255, 255, 0.6);
       z-index: 90;
     }
+
     &::before {
       content: "";
       position: absolute;
@@ -23,11 +67,27 @@
       animation: refreshForm infinite 2s;
     }
   }
+
+  &__btn {
+    border: none;
+    margin: 0 auto;
+  }
 }
+
+.tippy-box[data-theme~='tomato'] {
+  background-color: $accent;
+  font-size: 13px;
+}
+
+.tippy-box[data-theme~='tomato'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: $accent;
+}
+
 @keyframes refreshForm {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

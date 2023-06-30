@@ -40,22 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // accordionNoClose();
 
   // Custom input numper
-  // inputNumberCastom();
+  inputNumberCastom();
 
   // Custom datepicker
-  // inputDateCustom();
+  inputDateCustom();
 
   // Custom phone input
-  // inputPhoneCustom();
+  inputPhoneCustom();
 
   // Custom Select
-  // niceSelectVanilla();
+  niceSelectVanilla();
 
   // Show Less content
-  // showMore();
+  showMore();
 
   // Tolltip
-  // tippyJs();
+  tippyJs();
   
   // Swiper Slider
   // swiperMudules();

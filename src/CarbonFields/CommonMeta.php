@@ -26,6 +26,18 @@ class CommonMeta
         ];
     }
 
+    public static function globalRating(): array
+    {
+        return [
+            Field::make('text', 'rating_google', __('Рейтинг Google'))
+                ->set_width(30),
+            Field::make('text', 'rating_provent', __('Рейтинг Provent'))
+                ->set_width(30),
+            Field::make('text', 'rating_akademily', __('Рейтинг Akademily'))
+                ->set_width(30),
+        ];
+    }
+
     public static function globalScripts(): array
     {
         return [
@@ -40,6 +52,37 @@ class CommonMeta
             Field::make('text', 'telegram_api', __('API Telegram')),
         ];
     }
+
+    public static function heroMeta(): array
+    {
+        return [
+            Field::make('text', 'hero_title_left', __('Левая часть заголовка'))
+                ->help_text('Если нужно заголовок можно разделить разными цветами')
+                ->set_width(50),
+            Field::make('text', 'hero_title_right', __('Правая часть заголовка'))
+                ->set_width(50),
+            Field::make('rich_text', 'hero_text', __('Текст после заголовка')),
+        ];
+    }
+
+    public static function staticMeta(): array
+    {
+        return [
+            Field::make('complex', 'statistic_card', __('Карточки статистики'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'карточку'])
+                ->add_fields([
+                    Field::make('image', 'statistic_image', __('Картинка'))
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                    Field::make('text', 'statistic_num', __('Число статистики')),
+                    Field::make('text', 'statistic_title', __('Заголовок статистики')),
+                    Field::make('rich_text', 'statistic_text', __('Текст статистики')),
+                ])
+        ];
+    }
+
+
 
 
     public static function faqMeta(): array
