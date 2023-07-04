@@ -54,7 +54,75 @@ class General
     add_filter('manage_requests_posts_custom_column', [$this, 'addHandlerCustomColumn'], 10, 2);
 
     add_filter('nav_menu_css_class', [$this, 'addClassMenuItems'], 1, 3);
+
+
+
+
+    // Загрузка svg
+    add_filter('upload_mimes', [$this, 'svgUploadAllow']);
+    add_filter('wp_check_filetype_and_ext', [$this, 'fix_svg_mime_type'], 10, 5);
   }
+
+
+  // Разрешает добавлять svg
+  public function svgUploadAllow($mimes)
+  {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+  }
+  # Исправление MIME типа для SVG файлов.
+  function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
+  {
+
+    // WP 5.1 +
+    if (version_compare($GLOBALS['wp_version'], '5.1.0', '>=')) {
+      $dosvg = in_array($real_mime, ['image/svg', 'image/svg+xml']);
+    } else {
+      $dosvg = ('.svg' === strtolower(substr($filename, -4)));
+    }
+
+    // mime тип был обнулен, поправим его
+    // а также проверим право пользователя
+    if ($dosvg) {
+
+      // разрешим
+      if (current_user_can('manage_options')) {
+
+        $data['ext']  = 'svg';
+        $data['type'] = 'image/svg+xml';
+      }
+      // запретим
+      else {
+        $data['ext']  = false;
+        $data['type'] = false;
+      }
+    }
+
+    return $data;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public function themeScriptsAndStyles()
   {

@@ -1,21 +1,25 @@
-
-<?php
-
+<?php 
 /** Template Name: Homepage */
+?>
 
-// Шапка сайта
-get_header();
+<?php get_header(); ?>
 
-echo '<main class="main">';
+<main class="main">
+    <?php get_template_part('parts/sections/hero'); ?>
+    <?php get_template_part('parts/sections/statistic'); ?>
+    <div class="container">
+        <div class="inner">
+            <div class="content">
+                <?php get_template_part('parts/sections/coaching'); ?>
+                <?php get_template_part('parts/sections/guarant'); ?>
+            </div>
+            <aside class="sidebar">
+                <div class="team">
 
-// Первый экран
-get_template_part('parts/sections/hero');
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
 
-// Секция со статистикой
-get_template_part('parts/sections/statistic');
-
-
-echo '</main>';
-
-// Подвал
-get_footer();
+<?php get_footer(); ?>

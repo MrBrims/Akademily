@@ -17,7 +17,9 @@ class PageMeta
 			->where('post_type', '=', 'page')
 			->where('post_template', '=', 'home.php')		
 			->add_tab(__('Первый экран'), CommonMeta::heroMeta())
-			->add_tab(__('Статистика'), CommonMeta::staticMeta());
+			->add_tab(__('Статистика'), CommonMeta::staticMeta())
+			->add_tab(__('Коучинг'), CommonMeta::coachingMeta())
+			->add_tab(__('Коучинг'), CommonMeta::guarantMeta());
 	}
 
 

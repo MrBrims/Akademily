@@ -82,6 +82,34 @@ class CommonMeta
         ];
     }
 
+    public static function coachingMeta(): array
+    {
+        return [
+            Field::make('text', 'coaching_title', __('Заголовок')),
+            Field::make('rich_text', 'coaching_text', __('Контент секции Coaching')),
+        ];
+    }
+
+    public static function guarantMeta(): array
+    {
+        return [
+            Field::make('text', 'guarant_title', __('Заголовок')),
+            Field::make('text', 'guarant_subtitle', __('Подзаголовок')),
+            Field::make('complex', 'guarant_card', __('Карточки'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'карточку'])
+                ->add_fields([
+                    Field::make('text', 'guarant_card_title', __('Заголовок')),
+                    Field::make('text', 'guarant_card_subtitle', __('Подзаголовок')),
+                    Field::make('textarea', 'guarant_card_text', __('Текст'))
+                        ->set_rows(3),
+                    Field::make('image', 'guarant_card_img', __('Иконка'))
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                ])
+        ];
+    }
+
 
 
 
