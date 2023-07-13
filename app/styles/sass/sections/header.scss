@@ -1,12 +1,15 @@
 .header {
   position: fixed;
-  width: 100%;
+  width: 101%;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
   transition: all .3s ease-in-out;
 
   &__top {
     padding: 4px 0;
+    background-color: #fff;
   }
 
   &__top-inner {
@@ -105,7 +108,7 @@
     height: 112px;
     width: 350px;
     position: relative;
-    top: 19px;
+    top: 18px;
     left: -17px;
     transition: all .1s ease-out;
   }

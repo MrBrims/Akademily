@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /** Template Name: Homepage */
 ?>
 
@@ -12,10 +13,15 @@
             <div class="content">
                 <?php get_template_part('parts/sections/coaching'); ?>
                 <?php get_template_part('parts/sections/guarant'); ?>
+                <?php get_template_part('parts/sections/relax'); ?>
+                <?php get_template_part('parts/sections/price'); ?>
+                <?php get_template_part('parts/sections/how-work'); ?>
+                <?php get_template_part('parts/sections/message'); ?>
+                <?php get_template_part('parts/sections/after-form'); ?>
             </div>
             <aside class="sidebar">
-                <div class="team">
-
+                <div class="team-vidget">
+                    <?php get_template_part('parts/blocks/team'); ?>
                 </div>
             </aside>
         </div>

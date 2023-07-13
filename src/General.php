@@ -32,7 +32,7 @@ class General
 
     // add_action('init', [$this, 'set_tocken']);
 
-    add_action('init', [$this, 'geo']);
+    // add_action('init', [$this, 'geo']);
 
     add_action('wp_enqueue_scripts', [$this, 'removeCode']);
 
@@ -353,44 +353,44 @@ class General
     return implode("\r\n", $out);
   }
 
-  public static function geo()
-  {
-    // URL параметры
-    $session = [
-      "first" => ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . (($_SERVER['REQUEST_URI'] == '/wp-content/themes/akademilyassets/js/feedback.js?ver=1') ? '/' : $_SERVER['REQUEST_URI']),
-      "isMobile" => wp_is_mobile() ? 'true' : 'false',
-      "refer" => $_SERVER["HTTP_REFERER"],
-      "dich" => $_SERVER['REQUEST_URI'],
-    ];
-    if (!isset($_COOKIE['session'])) {
-      setcookie('session', json_encode($session), time() + 60 * 60 * 24, '/');
-    };
+  // public static function geo()
+  // {
+  //   // URL параметры
+  //   $session = [
+  //     "first" => ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . (($_SERVER['REQUEST_URI'] == '/wp-content/themes/akademilyassets/js/feedback.js?ver=1') ? '/' : $_SERVER['REQUEST_URI']),
+  //     "isMobile" => wp_is_mobile() ? 'true' : 'false',
+  //     "refer" => $_SERVER["HTTP_REFERER"],
+  //     "dich" => $_SERVER['REQUEST_URI'],
+  //   ];
+  //   if (!isset($_COOKIE['session'])) {
+  //     setcookie('session', json_encode($session), time() + 60 * 60 * 24, '/');
+  //   };
 
-    // GET параметры
-    if (!isset($_COOKIE['getParam'])) {
-      setcookie('getParam', json_encode($_GET), time() + 60 * 60 * 24, '/');
-    }
+  //   // GET параметры
+  //   if (!isset($_COOKIE['getParam'])) {
+  //     setcookie('getParam', json_encode($_GET), time() + 60 * 60 * 24, '/');
+  //   }
 
-    // GEO параметры
-    if (!isset($_COOKIE['geo'])) {
-      $client_ip = $_SERVER['REMOTE_ADDR'];
-      // проверка для локалки
-      // $client_ip = '84.244.8.172';
+  //   // GEO параметры
+  //   if (!isset($_COOKIE['geo'])) {
+  //     $client_ip = $_SERVER['REMOTE_ADDR'];
+  //     // проверка для локалки
+  //     // $client_ip = '84.244.8.172';
 
-      $api = 'https://json.geoiplookup.io/' . $client_ip;
+  //     $api = 'https://json.geoiplookup.io/' . $client_ip;
 
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      curl_setopt($ch, CURLOPT_URL, $api);
+  //     $ch = curl_init();
+  //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  //     curl_setopt($ch, CURLOPT_URL, $api);
 
-      $response = curl_exec($ch);
-      curl_close($ch);
+  //     $response = curl_exec($ch);
+  //     curl_close($ch);
 
-      $response = json_encode(json_decode($response));
-      setcookie('geo', $response, time() + 60 * 60 * 24, '/');
-      return $response;
-    }
-  }
+  //     $response = json_encode(json_decode($response));
+  //     setcookie('geo', $response, time() + 60 * 60 * 24, '/');
+  //     return $response;
+  //   }
+  // }
 }
 
 new General();

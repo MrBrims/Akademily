@@ -2,6 +2,10 @@ export function tabs() {
   const tabItems = Array.from(document.querySelectorAll('.tab__nav'))
   const tabContent = Array.from(document.querySelectorAll('.tab__content'))
 
+
+  tabItems[0].classList.add('--active-tab');
+  tabContent[0].classList.add('--active-tab');
+
   const tabClearClass = (element, className = '--active-tab') => {
     element.find(item => item.classList.remove(`${className}`))
   }

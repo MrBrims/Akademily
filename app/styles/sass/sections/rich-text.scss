@@ -1,0 +1,27 @@
+.rich-text {
+    h2 {
+        color: $titlecolor;
+        margin-top: 25px;
+        @include fluidMarginB(20px, 25px, 480px, 1024px, 25px);
+    }
+
+    h3,
+    h4 {
+        color: $titlecolor;
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    ul {
+        padding-left: 20px;
+        list-style-type: disc;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+}

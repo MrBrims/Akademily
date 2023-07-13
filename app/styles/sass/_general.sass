@@ -11,15 +11,23 @@ h2,
 h3,
 h4
   font-family: $titlefont
+  font-weight: 600
+  line-height: 1.2
 
 h1
   @include fluidFontSize(30px, 56px, 480px, 1280px, 26px)
-  @include fluidLineHeight(36px, 64px, 480px, 1280px, 46px)
 
 h2
-  @include fluidFontSize(26px, 40px, 480px, 1280px, 26px)
-  @include fluidLineHeight(32px, 46px, 480px, 1280px, 46px)
-  font-weight: 600
+  @include fluidFontSize(26px, 40px, 480px, 1280px, 40px)
+
+h3
+  @include fluidFontSize(24px, 30px, 480px, 1280px, 30px)
+
+h4
+  @include fluidFontSize(20px, 26px, 480px, 1280px, 26px)
+
+textarea
+  resize: none
 
 #wpadminbar
   top: auto
@@ -44,6 +52,10 @@ h2
 .sidebar
   width: 300px
 
+.team-vidget
+  position: sticky
+  top: 60px
+
 .container
   max-width: 1300px
   @include fluidPaddingLR(10px, 15px, 480px, 1024px, 10px)
@@ -53,7 +65,7 @@ h2
   @include fluidMarginTB(40px, 80px, 480px, 1024px, 40px)
 
 .title
-  color: #002E5D
+  color: $titlecolor
   @include fluidMarginB(20px, 25px, 480px, 1024px, 25px)
 
 .btn

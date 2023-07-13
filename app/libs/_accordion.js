@@ -1,14 +1,19 @@
 export function accordion() {
-  document.querySelectorAll('.accordion__head').forEach((item) =>
-    item.addEventListener('click', () => {
-      const parent = item.parentNode;
+  const accordionItems = document.querySelectorAll('.accordion__item');
 
-      if (parent.classList.contains('--active')) {
-        parent.classList.remove('--active')
-      } else {
-        document.querySelectorAll('.accordion__item').forEach((child) => child.classList.remove('--active'))
-        parent.classList.add('--active');
-      }
-    })
-  )
+  // Открываем первый элемент аккордеона
+  accordionItems[0].classList.add('--active');
+
+  accordionItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Добавляем класс "active" к выбранному элементу
+      item.classList.add('--active');
+      // Удаляем класс "active" у остальных элементов
+      accordionItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('--active');
+        }
+      });
+    });
+  });
 }

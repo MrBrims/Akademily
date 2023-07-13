@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // adminIndentWp();
 
   // Tabs
-  // tabs();
+  tabs();
 
   // Simplew accordion
-  // accordion();
+  accordion();
 
   // Accordion no close
   // accordionNoClose();
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   tippyJs();
   
   // Swiper Slider
-  // swiperMudules();
+  swiperMudules();
 
   // Form Submit
   // mailerForm();

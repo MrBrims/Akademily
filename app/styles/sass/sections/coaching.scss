@@ -7,6 +7,7 @@
         margin-bottom: 15px;
         @include fluidMarginT(25px, 30px, 480px, 1024px, 25px);
         color: $titlecolor;
+        font-weight: 500;
     }
 
     &__content ul {

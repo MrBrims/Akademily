@@ -2,17 +2,13 @@ import { Swiper, Navigation, Pagination, Lazy } from 'swiper';
 Swiper.use([Navigation, Pagination, Lazy])
 
 export function swiperMudules() {
-  const slider = new Swiper('.slider__body', {
-    navigation: {
-      nextEl: ".slider__next",
-      prevEl: ".slider__prev",
-    },
+  const slider = new Swiper('.team__body', {
     pagination: {
-      el: ".slider__nav",
+      el: ".team__nav",
     },
     loop: true,
-    slidesPerView: 4,
-    spaceBetween: 30,
+    slidesPerView: 1,
+    spaceBetween: 0,
     lazy: true,
   });
 }

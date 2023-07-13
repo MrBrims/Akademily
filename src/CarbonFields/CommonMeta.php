@@ -4,6 +4,9 @@ use Carbon_Fields\Field;
 
 class CommonMeta
 {
+
+    // Global Fields
+
     public static function globalContact(): array
     {
         return [
@@ -38,6 +41,88 @@ class CommonMeta
         ];
     }
 
+    public static function globalTeam(): array
+    {
+        return [
+            Field::make('complex', 'team_card', __('Слайдер менеджеров'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'менеджера'])
+                ->add_fields([
+                    Field::make('image', 'team_card_img', __('Фото'))
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                    Field::make('text', 'team_card_name', __('Имя'))
+                        ->set_width(50),
+                    Field::make('text', 'team_card_position', __('Должность'))
+                        ->set_width(50),
+                    Field::make('text', 'team_card_tel', __('WhatsApp'))
+                        ->set_width(30),
+                    Field::make('text', 'team_card_mail', __('Почта'))
+                        ->set_width(30),
+                    Field::make('text', 'team_card_time', __('Время работы'))
+                        ->set_width(30),
+                ])
+        ];
+    }
+
+    public static function globalPriceTab(): array
+    {
+        return [
+            Field::make('complex', 'price_tab_nav', __('Названия табов'))
+                ->help_text('Порядковый номер названия соответствует порядковому номеру контента')
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'название'])
+                ->add_fields([
+                    Field::make('text', 'price_tab_name', __('Название таба'))
+                        ->set_width(30),
+                    Field::make('textarea', 'price_tab_note', __('Подсказка к названию'))
+                        ->set_width(70)
+                        ->set_rows(3),
+                ]),
+            Field::make('complex', 'price_tab_content', __('Контент табоы'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'контент'])
+                ->add_fields([
+                    Field::make('textarea', 'price_tab_note', __('Примечание'))
+                        ->set_width(70)
+                        ->set_rows(3),
+                    Field::make('text', 'price_tab_btn', __('Текст на кнопке'))
+                        ->set_width(30),
+                    Field::make('text', 'price_tab_num_pref', __('Текст перед ценой'))
+                        ->set_width(25),
+                    Field::make('text', 'price_tab_num', __('Цена'))
+                        ->set_width(25),
+                    Field::make('text', 'price_tab_num_currency', __('Валюта'))
+                        ->set_width(25),
+                    Field::make('text', 'price_tab_num_after', __('Текст после цены'))
+                        ->set_width(25),
+                    Field::make('rich_text', 'price_tab_list', __('Сипсок')),
+                ])
+        ];
+    }
+
+    public static function globalHowWork(): array
+    {
+        return [
+            Field::make('complex', 'accordeon_work', __('Аккордеон Как мы работаем'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'аккордеон'])
+                ->add_fields([
+                    Field::make('text', 'accordeon_work_title', __('Заголовок аккордеона')),
+                    Field::make('textarea', 'accordeon_work_text', __('Текст аккордеона'))
+                        ->set_rows(3),
+                    Field::make('checkbox', 'accordeon_work_btn_show', __('Показать кнопку?'))
+                        ->set_width(30),
+                    Field::make('text', 'accordeon_work_btn', __('Текст на кнопке'))
+                        ->set_width(40),
+                    Field::make('image', 'accordeon_work_image', __('Изображение слева'))
+                        ->set_width(30)
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                ])
+        ];
+    }
+
     public static function globalScripts(): array
     {
         return [
@@ -52,6 +137,8 @@ class CommonMeta
             Field::make('text', 'telegram_api', __('API Telegram')),
         ];
     }
+
+    // Meta Field
 
     public static function heroMeta(): array
     {
@@ -109,6 +196,49 @@ class CommonMeta
                 ])
         ];
     }
+
+    public static function relaxMeta(): array
+    {
+        return [
+            Field::make('text', 'relax_title', __('Заголовок')),
+            Field::make('rich_text', 'relax_text', __('Контент')),
+        ];
+    }
+
+    public static function priceMeta(): array
+    {
+        return [
+            Field::make('text', 'price_title', __('Заголовок'))
+                ->help_text('Отредактировать сами табы можно в глобальных настройках'),
+        ];
+    }
+
+    public static function howWorkMeta(): array
+    {
+        return [
+            Field::make('text', 'how-work_title_after', __('Заголовок перед аккордеоном')),
+            Field::make('rich_text', 'how-work_text_after', __('Текст перед аккордеоном')),
+            Field::make('text', 'how-work_title_before', __('Заголовок после аккордеона')),
+            Field::make('rich_text', 'how-work_text_before', __('Текст после аккордеона')),
+        ];
+    }
+
+    public static function messageMeta(): array
+    {
+        return [
+            Field::make('text', 'message_title', __('Заголовок')),
+            Field::make('text', 'message_subtitle', __('Подзаголовок'))
+                ->help_text('Для выделения части текста оберните ее в тег span'),
+        ];
+    }
+
+    public static function richAfterForm(): array
+    {
+        return [
+            Field::make('rich_text', 'rich_after_form', __('Текст после формы')),
+        ];
+    }
+
 
 
 

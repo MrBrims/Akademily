@@ -16,6 +16,9 @@ class MainMeta
             ->add_tab(__('Глобальные контакты'), CommonMeta::globalContact())
             ->add_tab(__('Общая информация'), CommonMeta::globalInfo())
             ->add_tab(__('Рейтинг'), CommonMeta::globalRating())
+            ->add_tab(__('Менеджеры'), CommonMeta::globalTeam())
+            ->add_tab(__('Табы прайса'), CommonMeta::globalPriceTab())
+            ->add_tab(__('Как мы работаем'), CommonMeta::globalHowWork())
             ->add_tab(__('Скрипты'), CommonMeta::globalScripts())
             ->add_tab(__('API'), CommonMeta::globalApiKey());
     }
