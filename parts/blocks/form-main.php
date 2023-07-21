@@ -36,7 +36,7 @@
             </span>
             <div class="form-counter">
                 <div data-id="decrement" class="counter-btn">-</div>
-                <input class="count-input input" name="number" type="number" value="30" max="1000" min="0" step="5" />
+                <input class="count-input input" name="number" type="number" value="30" max="1000" min="0" step="1" />
                 <div data-id="increment" class="counter-btn">+</div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                 <span class="form__required-field">*</span> Liefertermin
             </span>
             <label class="form__date-custom">
-                <input class="form-main__input date-input input" name="deadline" type="text" placeholder="<?php echo date("d.m.Y"); ?>" required>
+                <input class="form-main__input date-input input" name="deadline" type="text" placeholder="<?php echo date("d.m.Y"); ?>" onfocus="(this.value='<?php echo date('d.m.Y'); ?>')" readonly required>
             </label>
         </div>
         <div class="form-main__item form__item-little">

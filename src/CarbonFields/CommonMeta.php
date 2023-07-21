@@ -123,6 +123,170 @@ class CommonMeta
         ];
     }
 
+    public static function globalGuarantMeta(): array
+    {
+        return [
+            Field::make('text', 'guarant_title', __('Заголовок')),
+            Field::make('text', 'guarant_subtitle', __('Подзаголовок')),
+            Field::make('complex', 'guarant_card', __('Карточки'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'карточку'])
+                ->add_fields([
+                    Field::make('text', 'guarant_card_title', __('Заголовок')),
+                    Field::make('text', 'guarant_card_subtitle', __('Подзаголовок')),
+                    Field::make('textarea', 'guarant_card_text', __('Текст'))
+                        ->set_rows(3),
+                    Field::make('image', 'guarant_card_img', __('Иконка'))
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                ])
+        ];
+    }
+
+    public static function globalFaq(): array
+    {
+        return [
+            Field::make('text', 'faq_title', __('Заголовок')),
+            Field::make('complex', 'faq_items', __('FAQ'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'FAQ'])
+                ->add_fields([
+                    Field::make('text', 'faq_head', __('Вопрос')),
+                    Field::make('rich_text', 'faq_content', __('Ответ')),
+                ])
+        ];
+    }
+
+    public static function globalContactWhatsapp(): array
+    {
+        return [
+            Field::make('textarea', 'contact_whatsapp_title', __('Заголовок'))
+                ->set_width(30)
+                ->set_rows(3),
+            Field::make('textarea', 'contact__whatsapp_subtitle', __('Подзаголовок'))
+                ->set_width(30)
+                ->set_rows(3),
+            Field::make('text', 'contact__whatsapp_btn', __('Текст на кнопке'))
+                ->set_width(30),
+        ];
+    }
+
+    public static function globalReviews(): array
+    {
+        return [
+            Field::make('text', 'reviews_title', __('Заголовок')),
+            Field::make('text', 'reviews_name_tab_1', __('Название первой вкладки')),
+            Field::make('complex', 'site_reviews', __('Отзывы с сайта'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'Отзыв'])
+                ->add_fields([
+                    Field::make('text', 'site_reviews_name', __('Имя'))
+                        ->set_width(30),
+                    Field::make('text', 'site_reviews_score', __('Оценка'))
+                        ->set_width(30),
+                    Field::make('text', 'site_reviews_date', __('Дата'))
+                        ->set_width(30),
+                    Field::make('rich_text', 'site_reviews_text', __('Текст отзыва')),
+                ]),
+            Field::make('text', 'reviews_name_tab_2', __('Название второй вкладки')),
+            Field::make('complex', 'soc_reviews', __('Отзывы с соц. сетей'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'отзыв'])
+                ->add_fields([
+                    Field::make('image', 'soc_reviews_img', __('Картинка'))
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                ])
+        ];
+    }
+
+    public static function qualGlobalMeta(): array
+    {
+        return [
+            Field::make('text', 'qualification_title', __('Заголовок')),
+            Field::make('complex', 'qualification_card', __('Карточки'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'карточку'])
+                ->add_fields([
+                    Field::make('image', 'qualification_card_img', __('Иконка'))
+                        ->set_width(20)
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                    Field::make('textarea', 'qualification_card_title', __('Текст на карточке'))
+                        ->set_width(40)
+                        ->set_rows(3),
+                    Field::make('textarea', 'qualification_card_quest', __('Подсказка'))
+                        ->set_width(40)
+                        ->set_rows(3),
+                ])
+        ];
+    }
+
+    public static function bakalavrGlobalMeta(): array
+    {
+        return [
+            Field::make('text', 'bakalavr_title', __('Заголовок')),
+            Field::make('complex', 'bakalavr_card', __('Список'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'итем'])
+                ->add_fields([
+                    Field::make('text', 'bakalavr_card_text', __('Текст'))
+                        ->set_width(50),
+                    Field::make('text', 'bakalavr_card_link', __('Ссылка'))
+                        ->set_width(50),
+                ])
+        ];
+    }
+
+    public static function globalFooter(): array
+    {
+        return [
+            Field::make('image', 'footer_logo', __('Логотип в футере'))
+                ->set_type('image')
+                ->set_width('30')
+                ->set_value_type('url'),
+            Field::make('rich_text', 'footer_text', __('Текст в нижней части'))
+                ->set_width(30),
+            Field::make('text', 'footer_schedule_text', __('Текст после время работы'))
+                ->set_width(30),
+            Field::make('text', 'footer_title_schedule', __('Заголовок время работы'))
+                ->set_width(25),
+            Field::make('text', 'footer_title_pay', __('Заголовок способов оплаты'))
+                ->set_width(25),
+            Field::make('text', 'footer_title_menu', __('Заголовок меню'))
+                ->set_width(25),
+            Field::make('text', 'footer_title_rev', __('Заголовок отзовиков'))
+                ->set_width(25),
+            Field::make('complex', 'footer_soc', __('Социальные сети'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'социальную сеть'])
+                ->add_fields([
+                    Field::make('text', 'footer_soc_link', __('Ссылка на соц. сеть'))
+                        ->set_width(50),
+                    Field::make('image', 'footer_soc_icons', __('Иконка соц. сети'))
+                        ->set_width(50)
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                ]),
+            Field::make('complex', 'footer_pay', __('Способы оплаты'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'способ оплаты'])
+                ->add_fields([
+                    Field::make('image', 'footer_pay_icons', __('Иконка способа оплаты'))
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                ]),
+            Field::make('complex', 'footer_rev', __('Отзывики'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'отзовик'])
+                ->add_fields([
+                    Field::make('image', 'footer_rev_icons', __('Иконка способа отзовика'))
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                ])
+        ];
+    }
+
     public static function globalScripts(): array
     {
         return [
@@ -145,9 +309,13 @@ class CommonMeta
         return [
             Field::make('text', 'hero_title_left', __('Левая часть заголовка'))
                 ->help_text('Если нужно заголовок можно разделить разными цветами')
-                ->set_width(50),
+                ->set_width(30),
             Field::make('text', 'hero_title_right', __('Правая часть заголовка'))
-                ->set_width(50),
+                ->set_width(30),
+            Field::make('image', 'hero_img', __('Картинка перед формой'))
+                ->set_type('image')
+                ->set_width(30)
+                ->set_value_type('url'),
             Field::make('rich_text', 'hero_text', __('Текст после заголовка')),
         ];
     }
@@ -174,26 +342,6 @@ class CommonMeta
         return [
             Field::make('text', 'coaching_title', __('Заголовок')),
             Field::make('rich_text', 'coaching_text', __('Контент секции Coaching')),
-        ];
-    }
-
-    public static function guarantMeta(): array
-    {
-        return [
-            Field::make('text', 'guarant_title', __('Заголовок')),
-            Field::make('text', 'guarant_subtitle', __('Подзаголовок')),
-            Field::make('complex', 'guarant_card', __('Карточки'))
-                ->set_layout('tabbed-horizontal')
-                ->setup_labels(['singular_name' => 'карточку'])
-                ->add_fields([
-                    Field::make('text', 'guarant_card_title', __('Заголовок')),
-                    Field::make('text', 'guarant_card_subtitle', __('Подзаголовок')),
-                    Field::make('textarea', 'guarant_card_text', __('Текст'))
-                        ->set_rows(3),
-                    Field::make('image', 'guarant_card_img', __('Иконка'))
-                        ->set_type('image')
-                        ->set_value_type('url'),
-                ])
         ];
     }
 
@@ -236,6 +384,65 @@ class CommonMeta
     {
         return [
             Field::make('rich_text', 'rich_after_form', __('Текст после формы')),
+        ];
+    }
+
+    public static function localFaq(): array
+    {
+        return [
+            Field::make('complex', 'faq_local_items', __('FAQ'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'FAQ'])
+                ->add_fields([
+                    Field::make('text', 'faq_local_head', __('Вопрос')),
+                    Field::make('rich_text', 'faq_local_content', __('Ответ')),
+                ])
+        ];
+    }
+
+    public static function richText(): array
+    {
+        return [
+            Field::make('rich_text', 'rich_text', __('Текст')),
+        ];
+    }
+
+    public static function richAfterReviews(): array
+    {
+        return [
+            Field::make('rich_text', 'rich_after_reviews', __('Текст после формы')),
+        ];
+    }
+
+    public static function priceList(): array
+    {
+        return [
+            Field::make('text', 'price_list_title', __('Заголовок')),
+            Field::make('text', 'price_list_th_1', __('Первая ячейка заголовка'))
+                ->set_width(25),
+            Field::make('text', 'price_list_th_2', __('Вторя ячейка заголовка'))
+                ->set_width(25),
+            Field::make('text', 'price_list_th_3', __('Третья ячейка заголовка'))
+                ->set_width(25),
+            Field::make('text', 'price_list_th_4', __('Четвертая ячейка заголовка'))
+                ->set_width(25),
+            Field::make('complex', 'price_list_table', __('Содержание таблицы'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'строку'])
+                ->add_fields([
+                    Field::make('text', 'price_list_td_1', __('Первая ячейка'))
+                        ->help_text('Название')
+                        ->set_width(25),
+                    Field::make('text', 'price_list_td_2', __('Вторя ячейка'))
+                        ->help_text('Время')
+                        ->set_width(25),
+                    Field::make('text', 'price_list_td_3', __('Третья ячейка'))
+                        ->help_text('Цена')
+                        ->set_width(25),
+                    Field::make('text', 'price_list_td_4', __('Четвертая ячейка'))
+                        ->help_text('Текст кнопки')
+                        ->set_width(25),
+                ])
         ];
     }
 

@@ -1,11 +1,11 @@
 <section class="section guarant">
     <h2 class="title guarant__title">
-        <?php echo carbon_get_post_meta(get_the_ID(), 'guarant_title'); ?>
+        <?php echo carbon_get_theme_option('guarant_title'); ?>
     </h2>
     <p class="guarant__subtitle">
-        <?php echo carbon_get_post_meta(get_the_ID(), 'guarant_subtitle'); ?>
+        <?php echo carbon_get_theme_option('guarant_subtitle'); ?>
     </p>
-    <?php foreach ((carbon_get_post_meta(get_the_ID(), 'guarant_card')) as $key) : ?>
+    <?php foreach ((carbon_get_theme_option('guarant_card')) as $key) : ?>
         <div class="guarant__item">
             <h4 class="guarant__item-title">
                 <?php echo $key['guarant_card_title']; ?>

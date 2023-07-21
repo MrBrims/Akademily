@@ -1,0 +1,23 @@
+.popup-form {
+    &__content {
+        max-width: 900px;
+        padding: 50px 30px;
+    }
+
+    &__close {
+        right: -10px;
+        top: -35px;
+    }
+}
+
+@media (max-width:440px) {
+    .popup-form {
+        &__content {
+            padding: 40px 10px;
+        }
+
+        .btn {
+            font-size: 14px;
+        }
+    }
+}

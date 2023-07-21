@@ -6,13 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <?php wp_head(); ?>
   <meta name="ahrefs-site-verification" content="6b9c0c683d94d02847a03035e120f7761fb17cb6e7ade600f7319a99f4c3bd90">
+
+  <style>
+    .popup {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
 </head>
 
 <body <?php body_class(); ?>>
 
 
   <div class="wrapper">
-    <header class="header">
+
+    <header class="header lock-padding">
       <div class="header__top">
         <div class="container">
           <div class="header__top-inner">
@@ -82,62 +90,3 @@
         </div>
       </div>
     </header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <?php
-
-    // preg_replace("/[^,.0-9]/", '', carbon_get_theme_option('global_phone'));
-
-    // wp_nav_menu([
-    //   'theme_location' => 'top-menu',
-    //   'container_class' => 'wrap-top-menu d-lg-block d-none',
-    //   'container_id' => 'wrap-top-menu',
-    //   'menu_class' => 'top-menu',
-    //   'menu_id' => 'top-menu',
-    // ]);
-
-    // if (!is_front_page() && function_exists('yoast_breadcrumb')) {
-    //   yoast_breadcrumb('<div class="breadcrumb-list">', '</div>');
-    // }
-
-    // wp_nav_menu([
-    //   'theme_location' => 'top-menu',
-    //   'container_class' => 'wrap-top-menu d-lg-block d-none',
-    //   'container_id' => 'wrap-top-menu',
-    //   'menu_class' => 'top-menu',
-    //   'menu_id' => 'top-menu',
-    // ]);
-
-
-    ?>

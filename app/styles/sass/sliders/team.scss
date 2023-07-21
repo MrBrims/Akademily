@@ -85,3 +85,43 @@
         margin: 15px auto 0 auto;
     }
 }
+
+@media (max-width: 1220px) {
+    .team {
+        &__body {
+            box-shadow: none;
+        }
+
+        &__slide-inner {
+            display: flex;
+            align-items: center;
+            gap: 70px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid $accent;
+        }
+
+        &__img {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .team {
+        &__body {
+            box-shadow: 3px 6px 20px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        &__slide-inner {
+            display: block;
+            max-width: 100%;
+            border: none;
+        }
+
+        &__img {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+    }
+}

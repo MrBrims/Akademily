@@ -7,6 +7,7 @@
   background-color: rgba($color: #000, $alpha: 0.5);
   z-index: 1000;
   transition: all 0.8s ease-in-out;
+  overflow-y: auto;
   &__body {
     min-height: 100%;
     display: flex;
@@ -20,14 +21,9 @@
     background-color: #fff;
   }
   &__head {
-    height: 40px;
     position: relative;
-    border-bottom: 1px solid #cccccc;
   }
   &__close {
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
     position: absolute;
     width: 32px;
     height: 32px;

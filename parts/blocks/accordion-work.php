@@ -20,7 +20,7 @@
                             <?php echo $key['accordeon_work_text']; ?>
                         </p>
                         <?php if (!empty($key['accordeon_work_btn_show'])) : ?>
-                            <a class="accordion-work__btn btn" href="#">
+                            <a class="accordion-work__btn btn popup-link" href="#popup-form">
                                 <?php echo $key['accordeon_work_btn']; ?>
                             </a>
                         <?php endif; ?>

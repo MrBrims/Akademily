@@ -9,7 +9,7 @@
     </div>
     <div class="tab__content-inner">
         <?php foreach ((carbon_get_theme_option('price_tab_content')) as $key) : ?>
-            <div class="tab__content">
+            <div class="tab__content tab-price__content">
                 <div class="tab-price__items">
                     <div class="tab-price__item">
                         <p class="tab-price__note">
@@ -23,7 +23,7 @@
                             </span>
                             <?php echo $key['price_tab_num_after']; ?>
                         </div>
-                        <a class="tab-price__btn" href="#">
+                        <a class="tab-price__btn popup-link" href="#popup-form">
                             <?php echo $key['price_tab_btn']; ?>
                         </a>
                     </div>

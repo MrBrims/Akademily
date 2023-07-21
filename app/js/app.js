@@ -15,6 +15,7 @@ import { selectCustom } from '~/app/libs/_selectCustom.js'
 import { lazyLoad } from '~/app/libs/_lazyLoad.js'
 import { adminIndentWp } from '~/app/libs/_adminIndentWp.js'
 import { mailerForm } from '~/app/libs/_mailerForm.js'
+import { bakalavr } from '~/app/libs/_bakalavr.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   burgerMenu();
 
   // Popups
-  // popup();
+  popup();
 
   // Отступ если есть wpadminbar
   // adminIndentWp();
@@ -59,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Swiper Slider
   swiperMudules();
+
+  //Добавление подчеркивания к списку бакалавр
+  bakalavr();
 
   // Form Submit
   // mailerForm();

@@ -160,6 +160,7 @@ class General
     register_nav_menu('mobile-menu', 'Mobile menu');
     register_nav_menu('side-menu', 'Side menu');
     register_nav_menu('bottom-menu', 'Bottom menu');
+    register_nav_menu('footer-menu', 'Footer menu');
 
     add_theme_support('post-thumbnails', ['post']);
   }

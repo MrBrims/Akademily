@@ -1,7 +1,7 @@
 .rich-text {
     h2 {
         color: $titlecolor;
-        margin-top: 25px;
+        @include fluidMarginT(40px, 80px, 480px, 1024px, 80px);
         @include fluidMarginB(20px, 25px, 480px, 1024px, 25px);
     }
 
@@ -19,6 +19,10 @@
     ul {
         padding-left: 20px;
         list-style-type: disc;
+    }
+
+    ol {
+        padding-left: 20px;
     }
 
     li {

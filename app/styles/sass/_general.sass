@@ -68,6 +68,16 @@ textarea
   color: $titlecolor
   @include fluidMarginB(20px, 25px, 480px, 1024px, 25px)
 
+.alignright
+  float: right
+  margin-left: 20px
+  margin-bottom: 20px
+
+.alignleft
+  float: left
+  margin-right: 20px
+  margin-bottom: 20px
+
 .btn
   height: 48px
   width: fit-content
@@ -83,3 +93,37 @@ textarea
   cursor: pointer
   &:hover
     opacity: .7
+
+ul.custom-list
+  color: $titlecolor
+
+.after-form h2,
+.after-reviews h2,
+.after-form h3,
+.after-reviews h3,
+.after-form h4,
+.after-reviews h4
+  text-align: center
+
+@media (max-width: 1220px)
+  .inner
+    display: block
+  .content,
+  .sidebar
+    width: 100%
+
+@media (max-width: 720px)
+  .alignright,
+  .alignleft
+    max-width: 200px
+
+
+@media (max-width: 620px)
+  .sidebar
+    max-width: 320px
+    margin: 0 auto
+
+@media (max-width: 440px)
+  .alignright,
+  .alignleft
+    display: none

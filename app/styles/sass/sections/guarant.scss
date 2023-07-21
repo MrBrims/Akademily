@@ -43,3 +43,29 @@
         transform: translateY(-50%);
     }
 }
+
+@media (max-width: 580px) {
+    .guarant {
+        &__item-img {
+            max-width: 100px;
+        }
+        &__item-title,
+        &__item-subtitle,
+        &__item-text {
+            padding-right: 110px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .guarant {
+        &__item-img {
+            display: none;
+        }
+        &__item-title,
+        &__item-subtitle,
+        &__item-text {
+            padding-right: 0;
+        }
+    }
+}

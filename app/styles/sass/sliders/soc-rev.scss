@@ -1,0 +1,14 @@
+.soc-rev {
+
+    &__nav {
+        max-width: fit-content;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .swiper-pagination-bullet {
+        width: 16px;
+        height: 16px;
+    }
+}

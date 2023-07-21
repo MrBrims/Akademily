@@ -94,8 +94,8 @@
 
     &__inner-icon {
         position: absolute;
-        right: 30px;
-        top: 30px;
+        right: 25px;
+        top: 25px;
         transition: transform .3s ease-in-out;
         width: 16px;
         height: 16px;
@@ -113,4 +113,25 @@
         }
     }
 
+}
+
+
+@media (max-width: 920px) {
+    .accordion-work {
+        &__img {
+            display: none;
+        }
+
+        &__inner {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 440px) {
+    .accordion-work {
+        &__inner-icon {
+            right: 15px;
+        }
+    }
 }

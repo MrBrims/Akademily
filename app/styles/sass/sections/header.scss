@@ -1,11 +1,10 @@
 .header {
   position: fixed;
-  width: 101%;
+  width: 100%;
+  max-width: 1920px;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 100;
-  transition: all .3s ease-in-out;
+  transition: top .3s ease-in-out;
 
   &__top {
     padding: 4px 0;

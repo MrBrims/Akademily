@@ -61,8 +61,8 @@
 
     &__title {
         color: #002E5D;
-        max-width: 50%;
         margin-bottom: 30px;
+        max-width: 500px;
 
         span {
             color: $accent;
@@ -76,37 +76,6 @@
 
     &__btn {
         @include fluidMarginB(30px, 60px, 480px, 1280px, 26px);
-    }
-
-    &__inner {
-        display: flex;
-        gap: 25px;
-        z-index: 50;
-        position: relative;
-    }
-
-    &__rating {
-        max-width: 33.3333%;
-        width: 100%;
-        background-color: #fff;
-        height: 88px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 50;
-        position: relative;
-    }
-
-    &__ratin-logo {
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-
-    &__rating-num {
-        font-family: $titlefont;
-        padding-left: 5px;
     }
 
     &__form-box {
@@ -179,17 +148,6 @@
             width: 80%;
         }
 
-        &__inner {
-            flex-wrap: wrap;
-        }
-
-        &__rating {
-            max-width: 100%;
-            flex-direction: row;
-            gap: 20px;
-            height: 60px;
-        }
-
         &__form-box {
             max-width: 100%;
         }
@@ -211,22 +169,7 @@
         &__item:last-child {
             width: 100%;
         }
-
-        &__inner {
-            --gap: 15px;
-            --elements: 3;
-            justify-content: center;
-            gap: var(--gap);
-        }
-
-        &__rating {
-            width: $layout;
-            height: 88px;
-            flex-direction: column;
-            gap: 0;
-            max-width: $layout;
-        }
-
+        
         &__form-box {
             min-height: auto;
         }

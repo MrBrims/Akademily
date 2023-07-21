@@ -6,18 +6,20 @@
 <?php get_header(); ?>
 
 <main class="main">
-    <?php get_template_part('parts/sections/hero'); ?>
-    <?php get_template_part('parts/sections/statistic'); ?>
+    <?php
+    get_template_part('parts/sections/hero');
+    get_template_part('parts/sections/statistic');
+    ?>
     <div class="container">
         <div class="inner">
             <div class="content">
-                <?php get_template_part('parts/sections/coaching'); ?>
-                <?php get_template_part('parts/sections/guarant'); ?>
-                <?php get_template_part('parts/sections/relax'); ?>
-                <?php get_template_part('parts/sections/price'); ?>
-                <?php get_template_part('parts/sections/how-work'); ?>
-                <?php get_template_part('parts/sections/message'); ?>
-                <?php get_template_part('parts/sections/after-form'); ?>
+                <?php
+                get_template_part('parts/sections/coaching');
+                get_template_part('parts/sections/guarant');
+                get_template_part('parts/sections/relax');
+                get_template_part('parts/sections/price');
+                get_template_part('parts/sections/how-work');
+                ?>
             </div>
             <aside class="sidebar">
                 <div class="team-vidget">
@@ -26,6 +28,14 @@
             </aside>
         </div>
     </div>
+    <?php
+    get_template_part('parts/sections/message'); 
+    get_template_part('parts/sections/after-form');
+    get_template_part('parts/sections/reviews');
+    get_template_part('parts/sections/after-reviews');
+    get_template_part('parts/sections/faq');
+    get_template_part('parts/sections/contact');
+    ?>
 </main>
 
 <?php get_footer(); ?>
