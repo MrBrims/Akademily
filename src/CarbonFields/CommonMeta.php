@@ -350,6 +350,7 @@ class CommonMeta
         return [
             Field::make('text', 'relax_title', __('Заголовок')),
             Field::make('rich_text', 'relax_text', __('Контент')),
+            Field::make('text', 'relax_btn', __('Текст на кнопке')),
         ];
     }
 
@@ -446,8 +447,99 @@ class CommonMeta
         ];
     }
 
+    public static function richTextTwo(): array
+    {
+        return [
+            Field::make('rich_text', 'rich_text_two', __('Текст после диаграмы'))
+                ->help_text('Текст после диаграммы'),
+        ];
+    }
 
+    public static function diagramMeta(): array
+    {
+        return [
+            Field::make('text', 'diagram_title', __('Заголовок')),
+            Field::make('complex', 'diagram_list', __('Список'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'итем'])
+                ->add_fields([
+                    Field::make('text', 'diagram_list_text', __('Текст')),
+                ]),
+            Field::make('image', 'diagram_img', __('Изображение'))
+                ->set_type('image')
+                ->set_value_type('url'),
+            Field::make('text', 'diagram_subtitle', __('Подзаголовок')),
+            Field::make('complex', 'diagram_items', __('Карточки'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'карточку'])
+                ->add_fields([
+                    Field::make('image', 'diagram_items_img', __('Изображение'))
+                        ->set_width(50)
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                    Field::make('text', 'diagram_items_text', __('Текст'))
+                        ->set_width(50),
+                ])
+        ];
+    }
 
+    public static function localPriceTab(): array
+    {
+        return [
+            Field::make('text', 'local_price_title', __('Заголовок')),
+            Field::make('complex', 'local_price_tab_nav', __('Названия табов'))
+                ->help_text('Порядковый номер названия соответствует порядковому номеру контента')
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'название'])
+                ->add_fields([
+                    Field::make('text', 'local_price_tab_name', __('Название таба'))
+                        ->set_width(30),
+                    Field::make('textarea', 'local_price_tab_note', __('Подсказка к названию'))
+                        ->set_width(70)
+                        ->set_rows(3),
+                ]),
+            Field::make('complex', 'local_price_tab_content', __('Контент табов'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'контент'])
+                ->add_fields([
+                    Field::make('textarea', 'local_price_tab_note', __('Примечание'))
+                        ->set_width(70)
+                        ->set_rows(3),
+                    Field::make('text', 'local_price_tab_btn', __('Текст на кнопке'))
+                        ->set_width(30),
+                    Field::make('text', 'local_price_tab_num_pref', __('Текст перед ценой'))
+                        ->set_width(25),
+                    Field::make('text', 'local_price_tab_num', __('Цена'))
+                        ->set_width(25),
+                    Field::make('text', 'local_price_tab_num_currency', __('Валюта'))
+                        ->set_width(25),
+                    Field::make('text', 'local_price_tab_num_after', __('Текст после цены'))
+                        ->set_width(25),
+                    Field::make('rich_text', 'local_price_tab_list', __('Сипсок')),
+                ])
+        ];
+    }
+
+    public static function cooperationLocal(): array
+    {
+        return [
+            Field::make('text', 'cooperation_title', __('Заголовок')),
+            Field::make('complex', 'cooperation_card', __('Карточки'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'карточку'])
+                ->add_fields([
+                    Field::make('image', 'cooperation_card_icon', __('Иконка'))
+                        ->set_width(30)
+                        ->set_type('image')
+                        ->set_value_type('url'),
+                    Field::make('text', 'cooperation_card_title', __('Заголовок карточки'))
+                        ->set_width(30),
+                    Field::make('textarea', 'cooperation_card_text', __('Текст'))
+                        ->set_width(40)
+                        ->set_rows(3),
+                ])
+        ];
+    }
 
 
     public static function faqMeta(): array

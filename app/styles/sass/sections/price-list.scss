@@ -31,6 +31,9 @@
         padding: 6px 16px;
         text-align-last: left;
         font-weight: 400;
+        &:last-child {
+            width: 10%;
+        }
     }
 
     &__table-td {

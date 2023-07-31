@@ -199,3 +199,18 @@
     gap: $f-max;
   }
 }
+
+@mixin fluidMaxHeight($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  
+  max-height: $f-min;
+  
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      max-height: $fallback;
+    }
+    max-height: calcFluidSize($f-min, $f-max, $w-min, $w-max, px);  
+  }
+  @media (min-width: $w-max) {
+    max-height: $f-max;
+  }
+}

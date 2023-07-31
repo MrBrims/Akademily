@@ -5,7 +5,7 @@
 
 <?php get_header(); ?>
 
-<main class="main">
+<main class="main home-main">
     <?php
     get_template_part('parts/sections/hero');
     get_template_part('parts/sections/statistic');

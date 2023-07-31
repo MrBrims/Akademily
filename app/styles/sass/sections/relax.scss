@@ -10,6 +10,21 @@
         font-weight: 500;
     }
 
+    &__content {
+        h2 {
+            color: $titlecolor;
+            @include fluidMarginT(40px, 80px, 480px, 1024px, 80px);
+            @include fluidMarginB(20px, 25px, 480px, 1024px, 25px);
+        }
+
+        h3,
+        h4 {
+            color: $titlecolor;
+            margin-top: 25px;
+            margin-bottom: 20px;
+        }
+    }
+
     &__content ol {
         list-style-type: none;
         @include fluidMarginT(25px, 40px, 480px, 1024px, 40px);
@@ -22,7 +37,7 @@
         counter-reset: heroNum;
     }
 
-    &__content li {
+    &__content ol li {
         position: relative;
         padding-left: 55px;
         margin-bottom: 39px;

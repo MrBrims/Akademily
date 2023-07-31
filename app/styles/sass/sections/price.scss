@@ -14,3 +14,7 @@
         z-index: -1;
     }
 }
+
+.fach .price::before {
+    display: none;
+}

@@ -1,9 +1,10 @@
 <?php
 
 /** Template Name: Halfe & Coaching */
-?>
 
-<?php get_header(); ?>
+get_header();
+
+?>
 
 <main class="main">
     <?php get_template_part('parts/sections/hero'); ?>

@@ -41,6 +41,9 @@ textarea
   min-height: 300vh
   justify-content: space-between
 
+.home-main .hero
+  margin-bottom: 0
+
 .inner
   display: flex
   width: 100%
@@ -51,6 +54,7 @@ textarea
 
 .sidebar
   width: 300px
+  padding-bottom: 40px
 
 .team-vidget
   position: sticky
@@ -61,8 +65,12 @@ textarea
   @include fluidPaddingLR(10px, 15px, 480px, 1024px, 10px)
   margin: 0 auto
 
+.container .container
+  padding: 0
+
 .section
   @include fluidMarginTB(40px, 80px, 480px, 1024px, 40px)
+  clear: both
 
 .title
   color: $titlecolor
@@ -77,6 +85,18 @@ textarea
   float: left
   margin-right: 20px
   margin-bottom: 20px
+
+.attachment-post-thumbnail
+  @include fluidMaxHeight(300px, 600px, 480px, 1200px, 500px)
+  object-fit: cover
+  margin-bottom: 40px
+
+.response-img
+  max-width: 60%
+  object-fit: contain
+
+.author-inner 
+  margin-top: 150px
 
 .btn
   height: 48px
@@ -116,7 +136,12 @@ ul.custom-list
   .alignright,
   .alignleft
     max-width: 200px
-
+  .response-img
+    max-width: 100%
+    width: 100%
+    float: none
+    margin-left: 0
+    margin-right: 0
 
 @media (max-width: 620px)
   .sidebar

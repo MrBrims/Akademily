@@ -16,11 +16,12 @@ import { lazyLoad } from '~/app/libs/_lazyLoad.js'
 import { adminIndentWp } from '~/app/libs/_adminIndentWp.js'
 import { mailerForm } from '~/app/libs/_mailerForm.js'
 import { bakalavr } from '~/app/libs/_bakalavr.js'
+import { revLoad } from '~/app/libs/_revLoad.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // Lazy load map
-  // lazyLoad();
+  lazyLoad();
 
   // Menu burger and smoth scroll
   burgerMenu();
@@ -63,6 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Добавление подчеркивания к списку бакалавр
   bakalavr();
+
+  // Загрузка отзывов
+  revLoad();
 
   // Form Submit
   // mailerForm();

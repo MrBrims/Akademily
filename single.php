@@ -1,45 +1,69 @@
 <?php
-get_header();
+
 while (have_posts()) {
     the_post();
-    ?>
-    <div class="container blog-single">
-        <div class="row">
-            <div id="article" class="col-lg-9 col-12 page-wrapper pt-5 pb-5">
-                <div class="global-title mb-5">
-                    <h1><?= get_the_title(); ?></h1>
-                </div>
-                <?php echo get_the_post_thumbnail(); ?><br><br>
-                <?php
-                get_template_part('template-parts/components/page-meta');
 
-                the_content();?>
-                
-                 <?php
-               
-                 
+    get_header();
 
-                  /** Sections top */
-                get_template_part('template-parts/components/sectionsTop');
-                get_template_part('template-parts/components/sectionsBottom');
-                ?>
+?>
 
-                <div class="text-center mt-4">
-                  <a class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#Modal">Preisvorschlag</a>
-                </div><br><br>
-                <?php get_template_part('template-parts/components/sections');
-                /** FAQ */
-                get_template_part('template-parts/components/faq');
-                get_template_part('template-parts/components/page-author');
-                
-                ?>
-                
+    <main class="main">
+        <section class="hero hero-single">
+            <div class="container">
+                <?php if (!is_front_page() && function_exists('yoast_breadcrumb')) { ?>
+                    <div class="single-breadcrumb">
+                        <?php yoast_breadcrumb('<div class="single-breadcrumb__list">', '</div>'); ?>
+                    </div>
+                <?php } ?>
+                <h1 class="hero-single__title">
+                    <?php the_title(); ?>
+                </h1>
             </div>
-
-            <?php get_sidebar(); ?>
+        </section>
+        <div class="container">
+            <div class="inner">
+                <div class="content">
+                    <?php the_post_thumbnail(); ?>
+                    <div class="meta-single">
+                        <div class="meta-single__item meta-single__cat">
+                            <?php the_category(', '); ?>
+                        </div>
+                        <div class="meta-single__item meta-single__date">
+                            Veröffentlicht: <?php the_date('d.m.Y') ?>
+                        </div>
+                        <div class="meta-single__item meta-single__modif">
+                            Erneut: <?php the_modified_date('d.m.Y') ?>
+                        </div>
+                        <div class="meta-single__item meta-single__author">
+                            Autor, Doctor:
+                            <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+                                <?php echo get_the_author_meta('display_name', get_the_author_meta('ID')); ?>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="rich-text section">
+                        <?php
+                        the_content();
+                        get_template_part('parts/sections/faq');
+                        get_template_part('parts/blocks/page-author');
+                        ?>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="team-vidget">
+                        <?php get_template_part('parts/blocks/form-sidebar'); ?>
+                    </div>
+                </aside>
+            </div>
         </div>
-    </div>
-    <?php get_template_part('template-parts/components/blog'); ?>
-    <?php
+        <?php
+        get_template_part('parts/sections/blog-slider');
+        get_template_part('parts/sections/contact');
+        ?>
+    </main>
+
+<?php
 }
 get_footer();
+
+?>
