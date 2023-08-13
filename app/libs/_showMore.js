@@ -292,7 +292,7 @@ export function showMore() {
   new ShowMore('.show-less', {
     config: {
       type: "text",
-      limit: 180,
+      limit: 280,
       more: "↓ more",
       less: "↑ less"
     }

@@ -15,7 +15,7 @@ class PageMeta
 		add_action('carbon_fields_register_fields', [$this, 'uberVir']);
 		add_action('carbon_fields_register_fields', [$this, 'uberRev']);
 		add_action('carbon_fields_register_fields', [$this, 'uberKont']);
-
+		add_action('carbon_fields_register_fields', [$this, 'uberTeam']);
 	}
 
 	public function homePageMeta()
@@ -111,6 +111,16 @@ class PageMeta
 			->where('post_template', '=', 'parts/page-uber-kont.php')
 			->add_tab(__('Первый экран'), CommonMeta::heroMeta())
 			->add_tab(__('FAQ'), CommonMeta::localFaq());
+	}
+
+	public function uberTeam()
+	{
+		Container::make('post_meta', __('Настройки страницы'))
+			->where('post_type', '=', 'page')
+			->where('post_template', '=', 'parts/page-uber-team.php')
+			->add_tab(__('Первый экран'), CommonMeta::heroMeta())
+			->add_tab(__('Как мы работаем'), CommonMeta::howWorkMeta())
+			->add_tab(__('Статистика'), CommonMeta::staticMeta());
 	}
 
 

@@ -1,26 +1,40 @@
 <?php get_header(); ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-xxl-9 col-xl-8 col-12 page-wrapper pt-5 pb-5">
-                <div class="global-title mb-5">
-                    <h1><?= single_cat_title(); ?></h1>
+
+<main class="main">
+    <section class="hero hero-single">
+        <div class="container">
+            <?php if (!is_front_page() && function_exists('yoast_breadcrumb')) { ?>
+                <div class="single-breadcrumb">
+                    <?php yoast_breadcrumb('<div class="single-breadcrumb__list">', '</div>'); ?>
                 </div>
+            <?php } ?>
+            <h1 class="hero-single__title">
+                <?php echo single_cat_title(); ?>
+            </h1>
+        </div>
+    </section>
+    <div class="container">
+        <div class="inner">
+            <div class="content">
                 <?php
                 while (have_posts()) {
                     the_post();
-                    get_template_part('template-parts/components/loop/blog');
+                    get_template_part('parts/blocks/post-list');
                 }
-                ?>
-
-                <?= get_the_posts_pagination([
+                echo get_the_posts_pagination([
                     'prev_next' => false,
                     'screen_reader_text' => ' ',
                     'aria_label' => '',
                 ]); ?>
             </div>
-
-            <?php get_sidebar(); ?>
+            <aside class="sidebar">
+                <div class="team-vidget">
+                    <?php get_template_part('parts/blocks/form-sidebar'); ?>
+                </div>
+            </aside>
         </div>
     </div>
-    <?php
-get_footer();
+    <?php get_template_part('parts/sections/contact'); ?>
+</main>
+
+<?php get_footer(); ?>

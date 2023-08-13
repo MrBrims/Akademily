@@ -238,6 +238,42 @@ class CommonMeta
         ];
     }
 
+    public static function teamGlobalMeta(): array
+    {
+        return [
+            Field::make('text', 'main_team_title', __('Заголовок')),
+            Field::make('complex', 'main_team_card', __('Карточки'))
+                ->set_layout('tabbed-horizontal')
+                ->setup_labels(['singular_name' => 'карточку'])
+                ->add_fields([
+                    Field::make('image', 'main_team_card_photo', __('Фото'))
+                        ->set_type('image')
+                        ->set_value_type('url')
+                        ->set_width(20),
+                    Field::make('text', 'main_team_card_name', __('Имя'))
+                        ->set_width(40),
+                    Field::make('text', 'main_team_card_position', __('Должность'))
+                        ->set_width(40),
+                    Field::make('text', 'main_team_card_rating', __('Рейтинг'))
+                        ->set_width(50),
+                    Field::make('text', 'main_team_card_rating_all', __('Общее число оценок'))
+                        ->set_width(50),
+                    Field::make('text', 'main_team_card_year', __('Лет работы'))
+                        ->set_width(30),
+                    Field::make('text', 'main_team_card_order', __('Число заказов'))
+                        ->set_width(30),
+                    Field::make('text', 'main_team_card_client', __('Обслужено клиентов'))
+                        ->set_width(30),
+                    Field::make('rich_text', 'main_team_card_descr', __('Описание')),
+                    Field::make('text', 'main_team_card_time', __('Время работы')),
+                    Field::make('text', 'main_team_card_whatsapp', __('WhatsApp'))
+                        ->set_width(50),
+                    Field::make('text', 'main_team_card_mail', __('Почта'))
+                        ->set_width(50),
+                ])
+        ];
+    }
+
     public static function globalFooter(): array
     {
         return [
@@ -323,6 +359,7 @@ class CommonMeta
     public static function staticMeta(): array
     {
         return [
+            Field::make('text', 'statistic_title', __('Заголовок')),
             Field::make('complex', 'statistic_card', __('Карточки статистики'))
                 ->set_layout('tabbed-horizontal')
                 ->setup_labels(['singular_name' => 'карточку'])
@@ -540,6 +577,10 @@ class CommonMeta
                 ])
         ];
     }
+
+
+
+
 
 
     public static function faqMeta(): array

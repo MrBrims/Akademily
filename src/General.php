@@ -136,7 +136,7 @@ class General
     // wp_enqueue_style('swiper', DE_URI . '/assets/css/swiper.min.css', [], '1.7');
     // wp_enqueue_style('main', DE_URI . '/style.css', [], '1.7');
 
-    wp_enqueue_style('new', DE_URI . '/resources/css/app.min.css', [], '1.0');
+    wp_enqueue_style('new', DE_URI . '/resources/css/app.min.css', [], '3.0');
   }
 
   public function removeCode()

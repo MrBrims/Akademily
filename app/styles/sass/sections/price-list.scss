@@ -2,6 +2,7 @@
     @include fluidPaddingT(40px, 70px, 480px, 1024px, 70px);
     @include fluidPaddingB(40px, 70px, 480px, 1024px, 70px);
     position: relative;
+    overflow-x: hidden;
 
     &::before {
         content: "";

@@ -1,9 +1,10 @@
 .hero {
     @include fluidPaddingB(40px, 100px, 480px, 1024px, 40px);
-    @include fluidPaddingT(60px, 120px, 600px, 1024px, 60px);
+    @include fluidPaddingT(100px, 150px, 600px, 1024px, 60px);
     background-color: #f3f8ff;
     position: relative;
     margin-bottom: 40px;
+    overflow-x: hidden;
 
     &::before {
         content: "";

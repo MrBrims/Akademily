@@ -42,12 +42,12 @@
       <div class="header__bottom">
         <div class="container">
           <div class="header__bottom-inner">
-            <a class="header__logo-link" href="#">
+            <a class="header__logo-link" href="<?php echo get_option('home');?>">
               <img class="header__logo-img" src="<?php echo get_template_directory_uri(); ?>/resources/images/logo.svg" alt="logo">
             </a>
             <div class="header__menu-wrapper">
               <div class="menu-box">
-                <a class="menu-box__logo-link" href="#">
+                <a class="menu-box__logo-link" href="<?php echo get_option('home');?>">
                   <img class="menu-box__logo-img" src="<?php echo get_template_directory_uri(); ?>/resources/images/logo.svg" alt="logo">
                 </a>
                 <?php
