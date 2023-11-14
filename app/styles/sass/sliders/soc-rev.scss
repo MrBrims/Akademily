@@ -1,14 +1,29 @@
 .soc-rev {
 
-    &__nav {
-        max-width: fit-content;
-        margin-top: 30px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+	&__nav {
+		max-width: fit-content;
+		margin-top: 30px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
-    .swiper-pagination-bullet {
-        width: 16px;
-        height: 16px;
-    }
+	&__slide-img {
+		height: auto;
+	}
+
+	.swiper-pagination-bullet {
+		opacity: 1;
+		background-color: #BBD1DC;
+		width: 16px;
+		height: 16px;
+		transition: background-color .3s ease-in-out;
+
+		&.swiper-pagination-bullet-active {
+			background-color: $accent;
+		}
+	}
+
+	.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+		margin: 0 10px;
+	}
 }

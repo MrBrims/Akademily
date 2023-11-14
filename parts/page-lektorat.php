@@ -37,8 +37,9 @@ get_header();
     get_template_part('parts/sections/message');
     get_template_part('parts/sections/reviews');
     get_template_part('parts/sections/blog-slider');
-    get_template_part('parts/sections/faq');
+    get_template_part('parts/sections/main-faq');
     get_template_part('parts/sections/contact');
+    get_template_part('parts/shema/microdata');
     ?>
 </main>
 

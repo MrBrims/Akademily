@@ -6,7 +6,19 @@
         <div class="reviews__stars">
             <?php get_template_part('parts/blocks/rating') ?>
         </div>
-        <div class="tab reviews-tab">
+        <div class="soc-rev">
+            <div class="soc-rev__body swiper">
+                <div class="soc-rev__wrapper swiper-wrapper">
+                    <?php foreach ((carbon_get_theme_option('soc_reviews')) as $key) : ?>
+                        <div class="soc-rev__slide swiper-slide">
+                            <img class="soc-rev__slide-img" src="<?php echo $key['soc_reviews_img']; ?>" alt="social reviews">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <div class="soc-rev__nav"></div>
+        </div>
+        <!-- <div class="tab reviews-tab">
             <div class="tab__nav-inner reviews-tab__inner">
                 <div class="tab__nav reviews-tab__nav">
                     <?php echo carbon_get_theme_option('reviews_name_tab_1'); ?>
@@ -58,6 +70,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>

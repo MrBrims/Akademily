@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    @include fluidGap(15px, 25px, 480px, 1280px, 25px);
+    gap: 15px 20px;
   }
 
   &__item-middle {

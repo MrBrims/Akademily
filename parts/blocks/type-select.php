@@ -1,5 +1,5 @@
 <select class="wide search-select custom-select" name="type" required>
-    <option value="" disabled="" selected="" class="">Geben Sie Arbeitstyp</option>
+    <option value="" disabled="" selected="" class="">Arbeitstyp</option>
     <option value="Bachelorarbeit" class="">Bachelorarbeit</option>
     <option value="Hausarbeit" class="">Hausarbeit</option>
     <option value="Doktorarbeit" class="">Doktorarbeit</option>

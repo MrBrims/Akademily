@@ -35,7 +35,7 @@ get_header();
     <?php
     get_template_part('parts/sections/reviews');
     get_template_part('parts/sections/blog-slider');
-    get_template_part('parts/sections/faq');
+    get_template_part('parts/sections/main-faq');
     get_template_part('parts/sections/contact');
     ?>
 </main>

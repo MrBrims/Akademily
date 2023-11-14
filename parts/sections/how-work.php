@@ -4,7 +4,7 @@
             <?php echo carbon_get_post_meta(get_the_ID(), 'how-work_title_after'); ?>
         <?php endif ?>
     </h2>
-    <div class="how-work__content">
+    <div class="how-work__content rich-text">
         <?php if (!empty(carbon_get_post_meta(get_the_ID(), 'how-work_text_after'))) : ?>
             <?php echo apply_filters('the_content', carbon_get_post_meta(get_the_ID(), 'how-work_text_after')); ?>
         <?php endif ?>
@@ -17,7 +17,7 @@
             <?php echo carbon_get_post_meta(get_the_ID(), 'how-work_title_before'); ?>
         <?php endif ?>
     </h2>
-    <div class="how-work__content">
+    <div class="how-work__content rich-text">
         <?php if (!empty(carbon_get_post_meta(get_the_ID(), 'how-work_text_before'))) : ?>
             <?php echo apply_filters('the_content', carbon_get_post_meta(get_the_ID(), 'how-work_text_before')); ?>
         <?php endif ?>

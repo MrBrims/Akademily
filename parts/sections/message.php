@@ -1,17 +1,15 @@
-<section class="message">
-    <div class="message__container">
-        <h2 class="message__title title">
-            <?php echo carbon_get_post_meta(get_the_ID(), 'message_title'); ?>
-        </h2>
-        <p class="message__subtitle">
-            <?php echo carbon_get_post_meta(get_the_ID(), 'message_subtitle'); ?>
-        </p>
-        <?php
-        if (is_page_template('parts/page-uber-kont.php')) {
-            get_template_part('parts/blocks/form-middle');
-        } else {
-            get_template_part('parts/blocks/form-main');
-        }
-        ?>
-    </div>
+<section class="message section">
+	<div class="container">
+		<h2 class="message__title title">
+			<?php echo carbon_get_post_meta(get_the_ID(), 'message_title'); ?>
+		</h2>
+		<p class="message__subtitle">
+			<?php echo carbon_get_post_meta(get_the_ID(), 'message_subtitle'); ?>
+		</p>
+	</div>
+	<div class="message__container">
+		<?php
+		get_template_part('parts/blocks/form-main');
+		?>
+	</div>
 </section>

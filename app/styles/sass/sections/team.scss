@@ -13,6 +13,9 @@
         border: 1px solid #BBD1DC;
         background: #FFF;
         width: $layout;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     &__item-top {

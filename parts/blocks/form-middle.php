@@ -27,8 +27,12 @@
             </div>
         </div>
     </div>
-    <input class="form-main__btn btn" type="submit" value="DAS FORMULARabschicken">
+    <input class="form-main__btn btn" type="submit" value="DAS FORMULAR abschicken">
     <p class="form-main__text-protect">
         Die Hinweise aus der <span>Datenschutzerklärung</span> und den <span>AGB</span> habe ich gelesen und akzeptiere diese.
     </p>
+
+    <input type="hidden" name="form_type" value="middle-form">
+    <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+    <input type="hidden" name="page" value="<?php echo $post->post_title; ?>" />
 </form>

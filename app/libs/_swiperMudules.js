@@ -1,16 +1,20 @@
-import { Swiper, Navigation, Pagination, Lazy } from 'swiper';
-Swiper.use([Navigation, Pagination, Lazy])
+import { Swiper, Navigation, Pagination, Autoplay, Lazy } from 'swiper';
+Swiper.use([Navigation, Pagination, Autoplay, Lazy])
 
 // Слайдер команды
 export function swiperMudules() {
   const sliderTeam = new Swiper('.team__body', {
     pagination: {
       el: ".team__nav",
+			clickable: true,
     },
     loop: true,
     slidesPerView: 1,
     spaceBetween: 0,
     lazy: true,
+    autoplay: {
+      delay: 3000,
+    },
   });
 
   // Слайдер отзывов с сайта

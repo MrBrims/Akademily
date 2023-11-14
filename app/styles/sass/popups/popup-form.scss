@@ -1,23 +1,19 @@
 .popup-form {
-    &__content {
-        max-width: 900px;
-        padding: 50px 30px;
-    }
+	&__content {
+		max-width: 900px;
+		padding: 20px;
+	}
 
-    &__close {
-        right: -10px;
-        top: -35px;
-    }
+	&__close {
+		right: -20px;
+		top: -22px;
+	}
 }
 
 @media (max-width:440px) {
-    .popup-form {
-        &__content {
-            padding: 40px 10px;
-        }
-
-        .btn {
-            font-size: 14px;
-        }
-    }
+	.popup-form {
+		.btn {
+			font-size: 14px;
+		}
+	}
 }

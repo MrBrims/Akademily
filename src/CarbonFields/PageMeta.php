@@ -16,21 +16,26 @@ class PageMeta
 		add_action('carbon_fields_register_fields', [$this, 'uberRev']);
 		add_action('carbon_fields_register_fields', [$this, 'uberKont']);
 		add_action('carbon_fields_register_fields', [$this, 'uberTeam']);
+		add_action('carbon_fields_register_fields', [$this, 'uberGuarant']);
+		add_action('carbon_fields_register_fields', [$this, 'impressum']);
+		add_action('carbon_fields_register_fields', [$this, 'wissen']);
+		add_action('carbon_fields_register_fields', [$this, 'mainFaq']);
+		add_action('carbon_fields_register_fields', [$this, 'newPrice']);
 	}
 
 	public function homePageMeta()
 	{
 		Container::make('post_meta', __('Настройки домашней страницы'))
 			->where('post_type', '=', 'page')
-			->where('post_template', '=', 'home.php')	
+			->where('post_template', '=', 'home.php')
 			->add_tab(__('Первый экран'), CommonMeta::heroMeta())
 			->add_tab(__('Статистика'), CommonMeta::staticMeta())
 			->add_tab(__('Коучинг'), CommonMeta::coachingMeta())
 			->add_tab(__('Без забот'), CommonMeta::relaxMeta())
-			->add_tab(__('Прайс'), CommonMeta::priceMeta())
 			->add_tab(__('Как мы работаем'), CommonMeta::howWorkMeta())
 			->add_tab(__('Большая форма'), CommonMeta::messageMeta())
 			->add_tab(__('Текст после формы'), CommonMeta::richAfterForm())
+			->add_tab(__('Прайс'), CommonMeta::mainPriceTab())
 			->add_tab(__('FAQ'), CommonMeta::localFaq())
 			->add_tab(__('Текст после отзывов'), CommonMeta::richAfterReviews());
 	}
@@ -43,7 +48,8 @@ class PageMeta
 			->add_tab(__('Первый экран'), CommonMeta::heroMeta())
 			->add_tab(__('Текст'), CommonMeta::richText())
 			->add_tab(__('FAQ'), CommonMeta::localFaq())
-			->add_tab(__('Таблица прайса'), CommonMeta::priceList());
+			->add_tab(__('Таблица прайса'), CommonMeta::priceList())
+			->add_tab(__('Звездочки в сниппете'), CommonMeta::microdataStar());
 	}
 
 	public function ghostPageMeta()
@@ -55,7 +61,9 @@ class PageMeta
 			->add_tab(__('Список'), CommonMeta::relaxMeta())
 			->add_tab(__('Текст'), CommonMeta::richText())
 			->add_tab(__('Текст после формы'), CommonMeta::richAfterForm())
-			->add_tab(__('FAQ'), CommonMeta::localFaq());
+			->add_tab(__('Прайс'), CommonMeta::mainPriceTab())
+			->add_tab(__('FAQ'), CommonMeta::localFaq())
+			->add_tab(__('Звездочки в сниппете'), CommonMeta::microdataStar());
 	}
 
 	public function lektoratPageMeta()
@@ -69,7 +77,8 @@ class PageMeta
 			->add_tab(__('Текст 2'), CommonMeta::richTextTwo())
 			->add_tab(__('Таблица прайса'), CommonMeta::priceList())
 			->add_tab(__('Как мы работаем'), CommonMeta::howWorkMeta())
-			->add_tab(__('FAQ'), CommonMeta::localFaq());
+			->add_tab(__('FAQ'), CommonMeta::localFaq())
+			->add_tab(__('Звездочки в сниппете'), CommonMeta::microdataStar());
 	}
 
 	public function fachPageMeta()
@@ -79,9 +88,11 @@ class PageMeta
 			->where('post_template', '=', 'parts/page-fach.php')
 			->add_tab(__('Первый экран'), CommonMeta::heroMeta())
 			->add_tab(__('Текст'), CommonMeta::richText())
+			->add_tab(__('Текст 2'), CommonMeta::richTextTwo())
 			->add_tab(__('Прайс'), CommonMeta::localPriceTab())
 			->add_tab(__('Как мы работаем'), CommonMeta::howWorkMeta())
-			->add_tab(__('FAQ'), CommonMeta::localFaq());
+			->add_tab(__('FAQ'), CommonMeta::localFaq())
+			->add_tab(__('Звездочки в сниппете'), CommonMeta::microdataStar());
 	}
 
 	public function uberVir()
@@ -113,6 +124,14 @@ class PageMeta
 			->add_tab(__('FAQ'), CommonMeta::localFaq());
 	}
 
+	public function uberGuarant()
+	{
+		Container::make('post_meta', __('Настройки страницы'))
+			->where('post_type', '=', 'page')
+			->where('post_template', '=', 'parts/page-guarant.php')
+			->add_tab(__('Первый экран'), CommonMeta::heroMeta());
+	}
+
 	public function uberTeam()
 	{
 		Container::make('post_meta', __('Настройки страницы'))
@@ -123,7 +142,45 @@ class PageMeta
 			->add_tab(__('Статистика'), CommonMeta::staticMeta());
 	}
 
+	public function impressum()
+	{
+		Container::make('post_meta', __('Настройки страницы'))
+			->where('post_type', '=', 'page')
+			->where('post_template', '=', 'parts/page-impressum.php')
+			->add_tab(__('Первый экран'), CommonMeta::heroMeta())
+			->add_tab(__('FAQ'), CommonMeta::localFaq());
+	}
 
+	public function wissen()
+	{
+		Container::make('post_meta', __('Настройки страницы'))
+			->where('post_type', '=', 'page')
+			->where('post_template', '=', 'parts/page-wissen.php')
+			->add_tab(__('Первый экран'), CommonMeta::heroMeta())
+			->add_tab(__('Как мы работаем'), CommonMeta::howWorkMeta())
+			->add_tab(__('FAQ'), CommonMeta::localFaq())
+			->add_tab(__('Звездочки в сниппете'), CommonMeta::microdataStar());
+	}
+
+	public function mainFaq()
+	{
+		Container::make('post_meta', __('Настройки страницы'))
+			->where('post_type', '=', 'page')
+			->where('post_template', '=', 'parts/page-faq.php')
+			->add_tab(__('Первый экран'), CommonMeta::heroMeta());
+	}
+
+	public function newPrice()
+	{
+		Container::make('post_meta', __('Настройки страницы'))
+			->where('post_type', '=', 'page')
+			->where('post_template', '=', 'parts/page-price.php')
+			->add_tab(__('Первый экран'), CommonMeta::heroMeta())
+			->add_tab(__('Текст'), CommonMeta::richText())
+			->add_tab(__('Текст 2'), CommonMeta::richTextTwo())
+			->add_tab(__('Заголовки таблиц'), CommonMeta::titlePrice())
+			->add_tab(__('FAQ'), CommonMeta::localFaq());
+	}
 }
 
 new PageMeta();

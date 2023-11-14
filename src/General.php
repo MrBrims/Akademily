@@ -56,8 +56,6 @@ class General
     add_filter('nav_menu_css_class', [$this, 'addClassMenuItems'], 1, 3);
 
 
-
-
     // Загрузка svg
     add_filter('upload_mimes', [$this, 'svgUploadAllow']);
     add_filter('wp_check_filetype_and_ext', [$this, 'fix_svg_mime_type'], 10, 5);
@@ -130,13 +128,15 @@ class General
     // wp_enqueue_script('swiper', DE_URI . '/assets/js/swiper-bundle.min.js', [], '1.7', true);
     // wp_enqueue_script('main', DE_URI . '/assets/js/main.js', [], '1.7', true);
 
-    wp_enqueue_script('new', DE_URI . '/resources/js/app.min.js', [], '1.0', true);
+		$version = filemtime(get_template_directory() . '/resources/js/app.min.js');
+    wp_enqueue_script('new', DE_URI . '/resources/js/app.min.js', [], $version, true);
 
     // wp_enqueue_style('bootstrap', DE_URI . '/assets/css/bootstrap.min.css', [], '1.7');
     // wp_enqueue_style('swiper', DE_URI . '/assets/css/swiper.min.css', [], '1.7');
     // wp_enqueue_style('main', DE_URI . '/style.css', [], '1.7');
 
-    wp_enqueue_style('new', DE_URI . '/resources/css/app.min.css', [], '3.0');
+		$version = filemtime(get_template_directory() . '/resources/css/app.min.css');
+    wp_enqueue_style('new', DE_URI . '/resources/css/app.min.css', [], $version);
   }
 
   public function removeCode()

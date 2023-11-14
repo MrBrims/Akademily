@@ -1,6 +1,6 @@
 <div class="rating">
     <div class="rating__inner">
-        <img class="rating__logo" src="<?php echo get_template_directory_uri() ?>/resources/images/rating_logo/google.webp" alt="google logo">
+        <img class="rating__logo" src="<?php echo get_template_directory_uri() ?>/resources/images/rating_logo/goo.webp" alt="google logo">
         <div class="rating__box">
             <?php
             $rating = floatval(carbon_get_theme_option('rating_google')) * 2;
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="rating__inner">
-        <img class="rating__logo" src="<?php echo get_template_directory_uri() ?>/resources/images/rating_logo/provent.webp" alt="provent logo">
+        <img class="rating__logo" src="<?php echo get_template_directory_uri() ?>/resources/images/rating_logo/pro.webp" alt="provent logo">
         <div class="rating__box">
             <?php
             $rating = floatval(carbon_get_theme_option('rating_provent')) * 2;

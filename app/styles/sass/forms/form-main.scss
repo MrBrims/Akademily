@@ -1,6 +1,6 @@
 .form-main {
     &__item-box {
-        @include fluidMarginB(15px, 25px, 480px, 1024px, 25px);
+        margin-bottom: 15px;
     }
 
     &__terxtarea {
@@ -9,7 +9,7 @@
     }
 
     .form-main__theme {
-        min-height: 130px;
+        min-height: 120px;
     }
 
     .form-main__komment {
@@ -20,6 +20,7 @@
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 30px;
+				margin-top: 30px;
         text-transform: uppercase;
         border: none;
     }

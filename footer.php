@@ -69,13 +69,22 @@
                 <?php echo carbon_get_theme_option('footer_text'); ?>
             </p>
             <p class="footer__address">
-                <?php echo carbon_get_theme_option('global__adress'); ?>
+                <?php
+                if (is_page_template('parts/page-uber-kont.php')) {
+                    echo "No.5, 17/F, Strand 50, 50 Bonham Strand, Sheung Wan, Hong Kong";
+                } else {
+                    echo carbon_get_theme_option('global__adress');
+                }
+                ?>
             </p>
         </div>
     </div>
 </footer>
 
-<?php get_template_part('parts/blocks/popup-form'); ?>
+<?php 
+get_template_part('parts/blocks/popup-form'); 
+get_template_part('parts/blocks/popup-thank'); 
+?>
 
 <?php wp_footer(); ?>
 </div>

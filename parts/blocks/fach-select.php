@@ -1,5 +1,5 @@
 <select class="wide search-select custom-select" name="specialization" required>
-  <option value="" disabled selected>Geben Sie Farhrichtung</option>
+  <option value="" disabled selected>Farhrichtung</option>
   <option value="Betriebswirtschaftslehre">Betriebswirtschaftslehre (BWL)</option>
   <option value="Allgemeine Volkswirtschaft">Allgemeine Volkswirtschaft</option>
   <option value="Management">Management</option>

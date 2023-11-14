@@ -12,7 +12,7 @@ get_header();
         <div class="inner">
             <div class="content">
                 <?php
-                get_template_part('parts/sections/reviews-load');
+                // get_template_part('parts/sections/reviews-load');
                 get_template_part('parts/sections/reviews-slider');
                 ?>
             </div>
@@ -24,7 +24,8 @@ get_header();
         </div>
     </div>
     <?php
-    get_template_part('parts/sections/faq');
+		get_template_part('parts/sections/message');
+    get_template_part('parts/sections/main-faq');
     get_template_part('parts/sections/contact');
     ?>
 </main>

@@ -8,25 +8,25 @@
                 <?php echo get_template_part('parts/blocks/type-select') ?>
             </div>
             <span class="form__text">
-                <span class="form__required-field">*</span> Farhrichtung <span class="form__tippy" data-tippy-content="Wählen Sie bitte die Fachrichtung Ihrer Arbeit aus. Wenn keine Fachrichtung passend ist, wählen Sie „Andere Fachrichtung” Je mehrere Informationen Sie eingeben, desto besser."></span>
+                <span class="form__required-field">*</span> Fachrichtung <span class="form__tippy" data-tippy-content="Wählen Sie bitte die Fachrichtung Ihrer Arbeit aus. Wenn keine Fachrichtung passend ist, wählen Sie „Andere Fachrichtung” Je mehrere Informationen Sie eingeben, desto besser."></span>
             </span>
             <?php echo get_template_part('parts/blocks/fach-select') ?>
         </div>
         <div class="form-main__item form__item-middle">
             <span class="form__text">
-                <span class="form__required-field">*</span> Thema der Arbeit <span class="form__tippy" data-tippy-content="Das ist Thema Ihrer Arbeit. Das ist sehr wichtig, Ihr Thema jetzt richtig zu schreiben."></span>
+                <span class="form__required-field">*</span> Thema der Arbeit <span class="form__tippy" data-tippy-content="Das ist das Thema Ihrer Arbeit. Es ist sehr wichtig, Ihr Thema jetzt richtig zu schreiben."></span>
             </span>
             <textarea class="form-main__input form-main__terxtarea form-main__theme input" name="theme" placeholder="Thema der Arbeit..." required></textarea>
         </div>
         <div class="form-main__item form__item-middle">
             <span class="form__text">
-                Zittirweise
+                Zitierweise
             </span>
             <?php echo get_template_part('parts/blocks/zittirweise-select') ?>
         </div>
         <div class="form-main__item form__item-middle">
             <span class="form__text">
-                <span class="form__required-field">*</span> Qualität <span class="form__tippy" data-tippy-content="Ist Ihnen der wissenschaftliche Grad des Autors wichtig, der Ihre Arbeit schreiben wird?"></span>
+                Qualität <span class="form__tippy" data-tippy-content="Ist Ihnen der wissenschaftliche Grad des Autors wichtig, der Ihre Arbeit schreiben wird?"></span>
             </span>
             <?php echo get_template_part('parts/blocks/qualitat-select') ?>
         </div>
@@ -78,17 +78,13 @@
             </span>
             <?php echo get_template_part('parts/blocks/ihre-select') ?>
         </div>
-        <div class="form-main__item form__item-full">
-            <div class="form-main__item-box">
-                <span class="form__text">
-                    Kommentieren <span class="form__tippy" data-tippy-content="Das ist Thema Ihrer Arbeit. Das ist sehr wichtig, Ihr Thema jetzt richtig zu schreiben."></span>
-                </span>
-                <textarea class="form-main__input form-main__terxtarea form-main__komment input" name="kommentieren" placeholder="Kommentieren"></textarea>
-            </div>
-        </div>
     </div>
-    <input class="form-main__btn btn" type="submit" value="DAS FORMULARabschicken">
+    <input class="form-main__btn btn" type="submit" value="DAS FORMULAR abschicken">
     <p class="form-main__text-protect">
         Die Hinweise aus der <span>Datenschutzerklärung</span> und den <span>AGB</span> habe ich gelesen und akzeptiere diese.
     </p>
+
+    <input type="hidden" name="form_type" value="big-form">
+    <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+    <input type="hidden" name="page" value="<?php echo $post->post_title; ?>" />
 </form>

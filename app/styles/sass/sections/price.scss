@@ -1,21 +1,10 @@
 .price {
-    @include fluidPaddingT(40px, 60px, 480px, 1024px, 60px);
-    @include fluidPaddingB(40px, 60px, 480px, 1024px, 60px);
-    position: relative;
-    overflow-x: hidden;
-
-    &::before {
-        content: "";
-        top: 0;
-        left: -320px;
-        position: absolute;
-        height: 100%;
-        width: 1920px;
-        background-color: #FBFCFF;
-        z-index: -1;
-    }
+	@include fluidPaddingT(40px, 60px, 480px, 1024px, 60px);
+	@include fluidPaddingB(40px, 60px, 480px, 1024px, 60px);
+	position: relative;
+	overflow-x: hidden;
 }
 
 .fach .price::before {
-    display: none;
+	display: none;
 }

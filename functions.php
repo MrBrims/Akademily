@@ -13,9 +13,8 @@ require_once 'src/CustomPostType.php';
 /** Settings meta fields */
 require_once 'src/CarbonFields/CommonMeta.php';
 require_once 'src/CarbonFields/PageMeta.php';
-require_once 'src/CarbonFields/PostMeta.php';
 require_once 'src/CarbonFields/UserMeta.php';
-require_once 'src/CarbonFields/ThemeMeta.php';
+require_once 'src/CarbonFields/PostMeta.php';
 
 /** New fields */
 require_once 'src/CarbonFields/MainMeta.php';
