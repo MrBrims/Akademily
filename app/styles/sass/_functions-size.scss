@@ -140,6 +140,21 @@
   }
 }
 
+@mixin fluidPadding($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  
+  padding: $f-min;
+  
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      padding: $fallback;
+    }
+    padding: calcFluidSize($f-min, $f-max, $w-min, $w-max, px);  
+  }
+  @media (min-width: $w-max) {
+    padding: $f-max;
+  }
+}
+
 @mixin fluidTop($f-min, $f-max, $w-min, $w-max, $fallback: false) {
   
   top: $f-min;
@@ -155,6 +170,21 @@
   }
 }
 
+@mixin fluidRight($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  
+  right: $f-min;
+  
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      right: $fallback;
+    }
+    right: calcFluidSize($f-min, $f-max, $w-min, $w-max, px);  
+  }
+  @media (min-width: $w-max) {
+    right: $f-max;
+  }
+}
+
 @mixin fluidGap($f-min, $f-max, $w-min, $w-max, $fallback: false) {
   
   gap: $f-min;
@@ -167,5 +197,20 @@
   }
   @media (min-width: $w-max) {
     gap: $f-max;
+  }
+}
+
+@mixin fluidMaxHeight($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  
+  max-height: $f-min;
+  
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      max-height: $fallback;
+    }
+    max-height: calcFluidSize($f-min, $f-max, $w-min, $w-max, px);  
+  }
+  @media (min-width: $w-max) {
+    max-height: $f-max;
   }
 }

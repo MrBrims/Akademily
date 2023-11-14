@@ -1,5 +1,10 @@
 <section class="statistic section">
     <div class="container">
+        <?php if (!empty(carbon_get_post_meta(get_the_ID(), 'statistic_title'))) : ?>
+            <h2 class="title">
+                <?php echo carbon_get_post_meta(get_the_ID(), 'statistic_title'); ?>
+            </h2>
+        <?php endif ?>
         <div class="statistic__items">
             <?php foreach ((carbon_get_post_meta(get_the_ID(), 'statistic_card')) as $key) : ?>
                 <div class="statistic__item">

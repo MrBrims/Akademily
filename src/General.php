@@ -32,7 +32,7 @@ class General
 
     // add_action('init', [$this, 'set_tocken']);
 
-    add_action('init', [$this, 'geo']);
+    // add_action('init', [$this, 'geo']);
 
     add_action('wp_enqueue_scripts', [$this, 'removeCode']);
 
@@ -54,7 +54,73 @@ class General
     add_filter('manage_requests_posts_custom_column', [$this, 'addHandlerCustomColumn'], 10, 2);
 
     add_filter('nav_menu_css_class', [$this, 'addClassMenuItems'], 1, 3);
+
+
+    // Загрузка svg
+    add_filter('upload_mimes', [$this, 'svgUploadAllow']);
+    add_filter('wp_check_filetype_and_ext', [$this, 'fix_svg_mime_type'], 10, 5);
   }
+
+
+  // Разрешает добавлять svg
+  public function svgUploadAllow($mimes)
+  {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+  }
+  # Исправление MIME типа для SVG файлов.
+  function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
+  {
+
+    // WP 5.1 +
+    if (version_compare($GLOBALS['wp_version'], '5.1.0', '>=')) {
+      $dosvg = in_array($real_mime, ['image/svg', 'image/svg+xml']);
+    } else {
+      $dosvg = ('.svg' === strtolower(substr($filename, -4)));
+    }
+
+    // mime тип был обнулен, поправим его
+    // а также проверим право пользователя
+    if ($dosvg) {
+
+      // разрешим
+      if (current_user_can('manage_options')) {
+
+        $data['ext']  = 'svg';
+        $data['type'] = 'image/svg+xml';
+      }
+      // запретим
+      else {
+        $data['ext']  = false;
+        $data['type'] = false;
+      }
+    }
+
+    return $data;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public function themeScriptsAndStyles()
   {
@@ -62,13 +128,15 @@ class General
     // wp_enqueue_script('swiper', DE_URI . '/assets/js/swiper-bundle.min.js', [], '1.7', true);
     // wp_enqueue_script('main', DE_URI . '/assets/js/main.js', [], '1.7', true);
 
-    wp_enqueue_script('new', DE_URI . '/resources/js/app.min.js', [], '1.0', true);
+		$version = filemtime(get_template_directory() . '/resources/js/app.min.js');
+    wp_enqueue_script('new', DE_URI . '/resources/js/app.min.js', [], $version, true);
 
     // wp_enqueue_style('bootstrap', DE_URI . '/assets/css/bootstrap.min.css', [], '1.7');
     // wp_enqueue_style('swiper', DE_URI . '/assets/css/swiper.min.css', [], '1.7');
     // wp_enqueue_style('main', DE_URI . '/style.css', [], '1.7');
 
-    wp_enqueue_style('new', DE_URI . '/resources/css/app.min.css', [], '1.0');
+		$version = filemtime(get_template_directory() . '/resources/css/app.min.css');
+    wp_enqueue_style('new', DE_URI . '/resources/css/app.min.css', [], $version);
   }
 
   public function removeCode()
@@ -92,6 +160,7 @@ class General
     register_nav_menu('mobile-menu', 'Mobile menu');
     register_nav_menu('side-menu', 'Side menu');
     register_nav_menu('bottom-menu', 'Bottom menu');
+    register_nav_menu('footer-menu', 'Footer menu');
 
     add_theme_support('post-thumbnails', ['post']);
   }
@@ -285,44 +354,44 @@ class General
     return implode("\r\n", $out);
   }
 
-  public static function geo()
-  {
-    // URL параметры
-    $session = [
-      "first" => ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . (($_SERVER['REQUEST_URI'] == '/wp-content/themes/akademilyassets/js/feedback.js?ver=1') ? '/' : $_SERVER['REQUEST_URI']),
-      "isMobile" => wp_is_mobile() ? 'true' : 'false',
-      "refer" => $_SERVER["HTTP_REFERER"],
-      "dich" => $_SERVER['REQUEST_URI'],
-    ];
-    if (!isset($_COOKIE['session'])) {
-      setcookie('session', json_encode($session), time() + 60 * 60 * 24, '/');
-    };
+  // public static function geo()
+  // {
+  //   // URL параметры
+  //   $session = [
+  //     "first" => ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . (($_SERVER['REQUEST_URI'] == '/wp-content/themes/akademilyassets/js/feedback.js?ver=1') ? '/' : $_SERVER['REQUEST_URI']),
+  //     "isMobile" => wp_is_mobile() ? 'true' : 'false',
+  //     "refer" => $_SERVER["HTTP_REFERER"],
+  //     "dich" => $_SERVER['REQUEST_URI'],
+  //   ];
+  //   if (!isset($_COOKIE['session'])) {
+  //     setcookie('session', json_encode($session), time() + 60 * 60 * 24, '/');
+  //   };
 
-    // GET параметры
-    if (!isset($_COOKIE['getParam'])) {
-      setcookie('getParam', json_encode($_GET), time() + 60 * 60 * 24, '/');
-    }
+  //   // GET параметры
+  //   if (!isset($_COOKIE['getParam'])) {
+  //     setcookie('getParam', json_encode($_GET), time() + 60 * 60 * 24, '/');
+  //   }
 
-    // GEO параметры
-    if (!isset($_COOKIE['geo'])) {
-      $client_ip = $_SERVER['REMOTE_ADDR'];
-      // проверка для локалки
-      // $client_ip = '84.244.8.172';
+  //   // GEO параметры
+  //   if (!isset($_COOKIE['geo'])) {
+  //     $client_ip = $_SERVER['REMOTE_ADDR'];
+  //     // проверка для локалки
+  //     // $client_ip = '84.244.8.172';
 
-      $api = 'https://json.geoiplookup.io/' . $client_ip;
+  //     $api = 'https://json.geoiplookup.io/' . $client_ip;
 
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      curl_setopt($ch, CURLOPT_URL, $api);
+  //     $ch = curl_init();
+  //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  //     curl_setopt($ch, CURLOPT_URL, $api);
 
-      $response = curl_exec($ch);
-      curl_close($ch);
+  //     $response = curl_exec($ch);
+  //     curl_close($ch);
 
-      $response = json_encode(json_decode($response));
-      setcookie('geo', $response, time() + 60 * 60 * 24, '/');
-      return $response;
-    }
-  }
+  //     $response = json_encode(json_decode($response));
+  //     setcookie('geo', $response, time() + 60 * 60 * 24, '/');
+  //     return $response;
+  //   }
+  // }
 }
 
 new General();

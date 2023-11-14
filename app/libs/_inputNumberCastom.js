@@ -13,14 +13,14 @@ export function inputNumberCastom () {
         let min = input.getAttribute("min");
         let max = input.getAttribute("max");
         let step = input.getAttribute("step");
-        let val = input.getAttribute("value");
+        let val = input.value;
 
         let id = target.getAttribute("data-id")
         let calcStep = (id === "increment") ? (step * 1) : (step * -1);
         let newValue = parseInt(val) + calcStep;
 
         if (newValue >= min && newValue <= max) {
-          input.setAttribute("value", newValue);
+          input.value = newValue;
         }
       }
     };
